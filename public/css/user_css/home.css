@@ -1,0 +1,113 @@
+.mainTextPosition{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.114);
+    padding: 10px 15px;
+    color: white;
+    /* width: 80%; */
+}
+
+.mainTextSize{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 8vh;
+    font-weight: 900;
+}
+
+.no-decoration{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.section-bg-color-home{
+    background-color: rgba(104, 137, 255, 0.121);
+
+}
+
+ol {
+    list-style-type: none; /* Remove default numbering */
+    counter-reset: item; /* Reset the counter */
+    
+}
+
+ol li {
+    counter-increment: item; /* Increment the counter for each list item */
+    margin-bottom: 50px; /* Add some space between items */
+    
+}
+
+ol li:before {
+    content: counter(item); /* Display the counter number */
+    font-size: 50px; /* Set the font size for the counter */
+    font-weight: bold; /* Optionally, make the numbers bold */
+    
+}
+
+.alignment{
+    margin-left: 40px; 
+    position:absolute; 
+    display:inline;
+    padding-top: 5px;
+    line-height: 1.5;
+    
+}
+
+.review-bg{
+    background-color: white;
+    border-radius: 10px;
+    border-block-start-width: 5px;
+    border-style:initial;
+    height: 400px;
+
+}
+
+.footer-bg{
+    background-color: #0D2857;
+    color: white;
+}
+
+ul {
+    list-style-type: none; 
+    
+}
+
+/* drop down list */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    min-width: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 4px 0;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+    background-color: #f9f9f9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+a{
+    text-decoration: none;
+    color: black
+}
+
+.text-justify {
+    text-align: justify;
+}

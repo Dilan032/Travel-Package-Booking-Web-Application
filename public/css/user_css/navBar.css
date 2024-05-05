@@ -1,0 +1,22 @@
+nav{
+    font-weight: bold;
+
+}
+
+.navbar-nav .nav-link.active {
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    border-bottom: 4px;
+    border-color: black;
+    border-style: inset;
+
+}
+
+.nav-item{
+    margin-right: 8px;
+}
+
+a{
+    text-decoration: none;
+    color: black
+}

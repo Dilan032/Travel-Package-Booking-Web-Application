@@ -1,0 +1,11 @@
+/* blog page css */
+
+.blog-Breadcrumb-bg{
+    background-color: rgba(220, 220, 220, 0.277);
+    border-radius: 2px;
+    
+}
+
+.text-justify {
+    text-align: justify;
+}

@@ -1,0 +1,41 @@
+.filter-bg{
+    background-color: rgba(104, 137, 255, 0.121);
+    border-radius: 6px;
+}
+
+.after-filter-bg{
+    background-color: white;
+    border-radius: 6px;
+    padding-bottom: 10px;
+    
+    
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+
+
+/* package page css */
+
+.blog-Breadcrumb-bg{
+    background-color: rgba(220, 220, 220, 0.277);
+    border-radius: 2px;
+    
+}
+
+.bokking-form{
+    width: 400px;
+    /* height: 600px; */
+    background-color: rgba(255, 255, 255, 0.896);
+    border-radius: 6px;
+    border-color: black;
+    border-width: 1px;
+    border-style: outset;
+}
+
+.fee-position{
+    margin-left: 200px;
+}
+

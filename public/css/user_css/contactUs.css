@@ -1,0 +1,19 @@
+.contac-form{
+    position: absolute;
+    width: 400px;
+    /* height: 600px; */
+    background-color: rgba(255, 255, 255, 0.896);
+    margin-top: -350px;
+    border-radius: 6px;
+    border-color: black;
+    border-width: 1px;
+    border-style: outset;
+}
+
+.map-position{
+    position: relative;
+}
+
+ul{
+    list-style-type: none; 
+}

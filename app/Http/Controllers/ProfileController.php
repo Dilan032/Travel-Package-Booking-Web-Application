@@ -11,12 +11,20 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+        /**
+     * when user click profile button open profile home page
+     */
+    public function index()
+    {
+        return view('profile.profileDashbord'); 
+    }
+
     /**
      * Display the user's profile form.
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('profile.profileEdit', [
             'user' => $request->user(),
         ]);
     }

@@ -1,4 +1,4 @@
-<section>
+{{-- <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Profile Information') }}
@@ -61,4 +61,57 @@
             @endif
         </div>
     </form>
-</section>
+</section> --}}
+
+
+<h2>Profile Information</h2>
+<p>Update your account's profile information.</p>
+
+{{-- form start --}}
+<form method="post" action="{{ route('profile.update') }}">
+    @csrf
+    @method('patch')
+
+    <div class="form-floating mb-3">
+        <input name="name" type="text" class="form-control" id="floatingInput" placeholder="name">
+        <label for="floatingInput">Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingInput" placeholder="Phone Number">
+        <label for="floatingInput">Phone Number</label>
+    </div>
+    {{-- select input start --}}
+    <div class="row">
+        <div class="col">
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected>-</option>
+                  <option value="1">india</option>
+                  <option value="2">sri lanka</option>
+                  <option value="3">thaivan</option>
+                </select>
+                <label for="floatingSelect">Select Country</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected>-</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>
+                <label for="floatingSelect">Select Gender</label>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary mt-4">Update</button>
+</form>
+
+{{-- <div class="form-floating">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <label for="floatingPassword">Password</label>
+</div> --}}

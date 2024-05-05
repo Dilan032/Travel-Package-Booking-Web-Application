@@ -1,0 +1,27 @@
+.user-side-menu-bg{
+    background-color: rgba(104, 137, 255, 0.121);
+    border-width: 1px;
+    height: 600px;
+    margin-top: -50px;
+    border-width: 1px;
+    border-style: ridge;
+}
+
+.highlighted {
+    background-color: #000000;
+    color: white;
+    border-radius: 10px;
+}
+
+.mouse-hand{
+    cursor: pointer;
+}
+
+
+.dashbord-bg{
+    background-color: rgba(104, 137, 255, 0.121);
+    border-radius: 10px;
+    height: 500px;
+    width: 800px;
+    
+}
