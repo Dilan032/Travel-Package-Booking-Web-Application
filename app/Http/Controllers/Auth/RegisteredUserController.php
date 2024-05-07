@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'user_country' => $request->user_country,
+            'phone_number' => $request->phone_number,
             'password' => Hash::make($request->password),
         ]);
 
@@ -46,6 +47,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('profile.Dashbord', absolute: false));
     }
 }

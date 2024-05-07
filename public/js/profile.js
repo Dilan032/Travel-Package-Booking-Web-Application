@@ -1,8 +1,7 @@
-    
-    // Add 'highlighted' class to 'Dashbord' on page load
-    document.addEventListener('DOMContentLoaded', function() {
+// Add 'highlighted' class to 'Dashboard' on page load
+document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('dashboard').classList.add('highlighted');
-    });
+});
 
 function highlightMenuItem(element) {
     // Remove 'highlighted' class from all menu items

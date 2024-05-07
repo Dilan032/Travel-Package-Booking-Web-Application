@@ -12,7 +12,7 @@
                     <div class="p-2 g-col-6 mouse-hand"  onclick="highlightMenuItem(this)">Dashboard</div>
                 </a>
                 <a href="{{ route('profile.edit') }}">
-                    <div class="p-2 g-col-6 mouse-hand" id="dashboard" onclick="highlightMenuItem(this)">Edit Profile</div>
+                    <div class="p-2 g-col-6 mouse-hand"  onclick="highlightMenuItem(this)">Edit Profile</div>
                 </a>
                 <a href="{{ route('profile.profileChangePassword') }}">
                     <div class="p-2 g-col-6 mouse-hand" onclick="highlightMenuItem(this)">Change Password</div>
@@ -26,7 +26,7 @@
             <hr>
             <div class="grid gap-3">
                 <a href="{{ route('profile.Booking') }}">
-                    <div class="p-2 g-col-6 mouse-hand" onclick="highlightMenuItem(this)">My Booking</div>
+                    <div class="p-2 g-col-6 mouse-hand" id="dashboard" onclick="highlightMenuItem(this)">My Booking</div>
                 </a>
                 <a href="{{ route('profile.Invoice') }}">
                     <div class="p-2 g-col-6 mouse-hand" onclick="highlightMenuItem(this)">Invoices</div>
@@ -43,8 +43,8 @@
         </div>
     </div>
 
-    <div class="col-5 mx-auto p-5 dashbord-bg-sizeBig">
-        @include('profile.partials.update-profile-information-form')
+    <div class="col-5 mx-auto p-4 dashbord-bg">
+        @include('profile.partials.bookingDetails')
     </div>
 </div>
     

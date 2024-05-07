@@ -1,32 +1,42 @@
-{{-- <section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
-        </h2>
+<div class="d-flex justify-content-between">
+    <div>
+        <h2 style="margin-top: -10px">Profile Information</h2>
+        <pre>Update your account's profile information.</pre>
+    </div>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
-        </p>
-    </header>
-
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-        @csrf
-    </form>
-
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
-        @csrf
-        @method('patch')
-
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+    {{-- display massage --}}
+    <div style="position: relative; ">
+        @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('status') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+        @endif
+    </div>
+</div>
 
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+<form id="send-verification" method="post" action="{{ route('verification.send') }}">
+    @csrf
+</form>
+
+{{-- form start --}}
+<form method="post" action="{{ route('profile.update') }}">
+    @csrf
+    @method('patch')
+
+    {{-- user name --}}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label fw-semibold">Name</label>
+        <input name="name" type="text" value="{{ old('name', $user->name) }}" class="form-control" id="exampleFormControlInput1" required>
+        {{-- <x-input-error class="mt-2" :messages="$errors->get('name')" /> --}}
+    </div>
+    
+    {{-- user email --}}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label fw-semibold">Email address</label>
+        <input name="email" type="email" value="{{ old('email', $user->email) }}" class="form-control" id="exampleFormControlInput1" >
+        {{-- input validation --}}
+        <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
@@ -45,73 +55,39 @@
                     @endif
                 </div>
             @endif
-        </div>
-
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
-
-            @if (session('status') === 'profile-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
-            @endif
-        </div>
-    </form>
-</section> --}}
-
-
-<h2>Profile Information</h2>
-<p>Update your account's profile information.</p>
-
-{{-- form start --}}
-<form method="post" action="{{ route('profile.update') }}">
-    @csrf
-    @method('patch')
-
-    <div class="form-floating mb-3">
-        <input name="name" type="text" class="form-control" id="floatingInput" placeholder="name">
-        <label for="floatingInput">Name</label>
     </div>
-    <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+    {{-- user phone number --}}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label fw-semibold">Phone Number</label>
+        <input name="phone_number" type="text" value="{{ old('phone_number', $user->phone_number) }}" class="form-control" id="exampleFormControlInput1" >
     </div>
-    <div class="form-floating mb-3">
-        <input type="number" class="form-control" id="floatingInput" placeholder="Phone Number">
-        <label for="floatingInput">Phone Number</label>
+
+    {{-- user country --}}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label fw-semibold"> Country </label>
+        <input name="user_country" type="text" value="{{ old('country', $user->user_country) }}" class="form-control" id="exampleFormControlInput1" >
     </div>
-    {{-- select input start --}}
-    <div class="row">
-        <div class="col">
-            <div class="form-floating">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                  <option selected>-</option>
-                  <option value="1">india</option>
-                  <option value="2">sri lanka</option>
-                  <option value="3">thaivan</option>
+
+    {{-- <div class="row"> --}}
+        {{-- <div class="col">
+            <label for="exampleFormControlInput1" class="form-label fw-semibold">Select Country</label>
+            <select name="country" class="form-select" aria-label="Default select example">
+                <option selected value="{{ old('country', $user->user_country) }}">{{$user->user_country}} </option>
+                <option value="{{ old('country', $user->user_country) }}">One</option>
+                <option value="{{ old('country', $user->user_country) }}">Two</option>
+                <option value="{{ old('country', $user->user_country) }}">Three</option>
+            </select>
+        </div> --}}
+        {{-- <div class="col">
+            <label for="exampleFormControlInput1" class="form-label fw-semibold">Select Gender</label>
+                <select name="gender" class="form-select" aria-label="Default select example">
+                    <option selected value="{{ old('gender', $user->gender) }}">{{$user->gender}}</option>
+                    <option value="{{ old('gender', $user->gender) }}">Male</option>
+                    <option value="{{ old('gender', $user->gender) }}">Female</option>
                 </select>
-                <label for="floatingSelect">Select Country</label>
-            </div>
-        </div>
-        <div class="col">
-            <div class="form-floating">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                  <option selected>-</option>
-                  <option value="1">Male</option>
-                  <option value="2">Female</option>
-                </select>
-                <label for="floatingSelect">Select Gender</label>
-            </div>
-        </div>
-    </div>
-    <button type="button" class="btn btn-primary mt-4">Update</button>
+        </div> --}}
+    {{-- </div> --}}
+    <button type="submit" class="btn btn-primary mt-2">{{ __('Save') }}</button>
 </form>
 
-{{-- <div class="form-floating">
-    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-    <label for="floatingPassword">Password</label>
-</div> --}}
+

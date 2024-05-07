@@ -19,8 +19,15 @@
          <!-- user_country -->
          <div>
             <x-input-label for="user_country" :value="__('Country')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="user_country" :value="old('user_country')" required autofocus autocomplete="user_country" />
+            <x-text-input id="user_country" class="block mt-1 w-full" type="text" name="user_country" :value="old('user_country')" required autofocus autocomplete="user_country" />
             <x-input-error :messages="$errors->get('user_country')" class="mt-2" />
+        </div>
+
+        <!-- phone number -->
+        <div>
+            <x-input-label for="phone_number" :value="__('phone_number')" />
+            <x-text-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number" :value="old('phone_number')" required autofocus autocomplete="phone_number" />
+            <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>
 
         <!-- Password -->

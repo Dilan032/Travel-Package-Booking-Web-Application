@@ -25,20 +25,16 @@
                 </div>
 
                 {{-- select catogery type --}}
-                <label class="mt-3 fw-bold">Category Types</label>
+                <label class="mt-3 fw-bold">Tour List</label>
                 <div class="container after-filter-bg mt-1 p-1">
                     <form multiple>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="option1" id="checkbox1">
-                            <label class="form-check-label" for="checkbox1">Option 1</label>
+                            <label class="form-check-label" for="checkbox1">Day Tour</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="option2" id="checkbox2">
-                            <label class="form-check-label" for="checkbox2">Option 2</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="option3" id="checkbox3">
-                            <label class="form-check-label" for="checkbox3">Option 3</label>
+                            <label class="form-check-label" for="checkbox2">Round Tour</label>
                         </div>
                     </form>
                 </div>

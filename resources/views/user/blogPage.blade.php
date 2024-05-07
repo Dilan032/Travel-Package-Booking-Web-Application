@@ -5,18 +5,13 @@
 
     <div class="container mb-5"> 
 
-      {{-- blog nav bar --}}
-      {{-- <nav class="blog-Breadcrumb-bg text-center" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{ route('blog') }}">Bolg</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Bolg One</li>
-        </ol>
-      </nav> --}}
-
-      {{-- back to blog btn --}}
-      <a href="{{ route('blog') }}">
-        <img src="{{ asset('image/help-tools/home.svg') }}" width="50px" alt="home">
-      </a>
+      <div class="d-flex">
+        {{-- back to package btn --}}
+        <a href="{{ route('package') }}">
+          <img src="{{ asset('image/help-tools/home.svg') }}" width="50px" alt="home">
+        </a>
+        <p class="mt-4">Blog > Blog Name</p>
+      </div>
     
     {{-- blog title --}}
     <div class="text-center mt-5">

@@ -12,10 +12,10 @@
                     <div class="p-2 g-col-6 mouse-hand"  onclick="highlightMenuItem(this)">Dashboard</div>
                 </a>
                 <a href="{{ route('profile.edit') }}">
-                    <div class="p-2 g-col-6 mouse-hand" id="dashboard" onclick="highlightMenuItem(this)">Edit Profile</div>
+                    <div class="p-2 g-col-6 mouse-hand"  onclick="highlightMenuItem(this)">Edit Profile</div>
                 </a>
                 <a href="{{ route('profile.profileChangePassword') }}">
-                    <div class="p-2 g-col-6 mouse-hand" onclick="highlightMenuItem(this)">Change Password</div>
+                    <div class="p-2 g-col-6 mouse-hand" id="dashboard" onclick="highlightMenuItem(this)">Change Password</div>
                 </a>
                 <a href="{{ route('profile.destroy') }}">
                     <div class="p-2 g-col-6 mouse-hand" onclick="highlightMenuItem(this)">Delete Account</div>
@@ -42,9 +42,11 @@
             
         </div>
     </div>
-
+    {{-- <div class="col-4">
+        
+    </div> --}}
     <div class="col-5 mx-auto p-5 dashbord-bg-sizeBig">
-        @include('profile.partials.update-profile-information-form')
+        @include('profile.partials.update-password-form')
     </div>
 </div>
     

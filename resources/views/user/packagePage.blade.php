@@ -4,21 +4,16 @@
 @section('content')
       <div class="container "> 
 
-         {{-- blog nav bar --}}
-        {{-- <nav class="blog-Breadcrumb-bg text-center" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-          <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{{ route('blog') }}">All Package</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Package Name</li>
-          </ol>
-        </nav> --}}
-
-        {{-- back to package btn --}}
-        <a href="{{ route('package') }}">
-          <img src="{{ asset('image/help-tools/home.svg') }}" width="50px" alt="home">
-        </a>
+        <div class="d-flex">
+          {{-- back to package btn --}}
+          <a href="{{ route('package') }}">
+            <img src="{{ asset('image/help-tools/home.svg') }}" width="50px" alt="home">
+          </a>
+          <p class="mt-4">All Package > Package Name</p>
+        </div>
 
         {{-- title --}}
-        <div class="d-flex mt-5">
+        <div class="d-flex mt-2">
           <div class="flex-grow-1">
             <h2 class="fw-bold">Day Tour to Sigiriya</h2>
             <pre>Discover Minneriya, Sigiriya, and Dambulla's Cultural Riches</pre>
