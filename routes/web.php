@@ -30,10 +30,13 @@ Route::get('/blogPage', function () {
     return view('user/blogPage');
 })->name('blogPage');
 
+
+// home page
 Route::get('/', function () {
     return view('user/home');
 })->name('home');
 
+// for test
 Route::get('/profile', function () {
     return view('profile.profileAccountDelete');
 })->name('profile.destroy');
