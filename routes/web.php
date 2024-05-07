@@ -36,7 +36,7 @@ Route::get('/', function () {
     return view('user/home');
 })->name('home');
 
-// for test
+// for test user delete
 Route::get('/profile', function () {
     return view('profile.profileAccountDelete');
 })->name('profile.destroy');
