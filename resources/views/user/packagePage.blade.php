@@ -7,9 +7,9 @@
         <div class="d-flex">
           {{-- back to package btn --}}
           <a href="{{ route('package') }}">
-            <img src="{{ asset('image/help-tools/home.svg') }}" width="50px" alt="home">
+            <img src="{{ asset('image/help-tools/home.svg') }}" width="40px" alt="home">
           </a>
-          <p class="mt-4">All Package > Package Name</p>
+          <p class="mt-3">All Package > Package Name</p>
         </div>
 
         {{-- title --}}

@@ -16,6 +16,18 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/user_css/package.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/user_css/profile.css') }}">
 
+    {{-- for user profile sidebar --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.user-side-menu-bg a').click(function() {
+                $('.user-side-menu-bg a').removeClass('active'); // Remove 'active' class from all links
+                $(this).addClass('active'); // Add 'active' class to the clicked link
+            });
+        });
+    </script>
+
+
     <title>{{ config('app.name')}}</title>
 </head>
 <body>
@@ -30,6 +42,8 @@
     {{-- footer --}}
     @include('layouts.footer')
 
+
+    
 
     <script src="{{ asset('js/webShare.js') }}" defer></script>
     <script src="{{ asset('js/profile.js') }}" defer></script>

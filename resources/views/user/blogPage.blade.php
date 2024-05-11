@@ -7,14 +7,14 @@
 
       <div class="d-flex">
         {{-- back to package btn --}}
-        <a href="{{ route('package') }}">
-          <img src="{{ asset('image/help-tools/home.svg') }}" width="50px" alt="home">
+        <a href="{{ route('blog') }}">
+          <img src="{{ asset('image/help-tools/home.svg') }}" width="40px" alt="home">
         </a>
-        <p class="mt-4">Blog > Blog Name</p>
+        <p class="mt-3">Blog > Blog Name</p>
       </div>
     
     {{-- blog title --}}
-    <div class="text-center mt-5">
+    <div class="text-center mt-1">
       <h2>Travel Sri Lanka with Tours: Exploring the Wonders of Sri Lanka</h2>
       <pre>Dec 15, 2024</pre>
     

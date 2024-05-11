@@ -159,32 +159,52 @@
 
         {{-- review Section --}}
         <div class="container-fluid mt-5 section-bg-color-home p-5" style="height: 540px;"> 
-                <div class="row pt-2">
-                    <div class="col-4 mt-5">
-                        <h1>What Our Clients Have to Say</h1>
-                        <pre>Words from Our Delighted Travelers</pre>
-                        
-                        <p class="text-justify">
-                            Explore the heartfelt feedback from our esteemed clients who have embarked on unforgettable journeys with Ceylonia Travels. 
-                            Their genuine testimonials speak volumes about the personalized experiences, expert guidance, and exceptional hospitality that we offer. 
-                            Join us in creating memories that last a lifetime.
-                        </p>
-    
+            <h2 class="text-center mb-3">What Our Clients Have to Say</h2>
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="col-7 review-bg p-4 text-justify">
+                            {{-- <p class="fw-bold">What Our Clients Have to Say</p> --}}
+                            <q class="font-monospace">Booking a tour with Ceylonia Travels was the best decision I made for my Sri Lankan adventure. 
+                                The attention to detail and personalized experience made every moment memorable. 
+                                From the ancient wonders to the scenic train rides, every day was a new discovery.
+                            </q>
+                            <hr/>
+                            <p class="font-monospace">name <br/> country</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="col-7 review-bg p-4 text-justify">
+                            {{-- <p class="fw-bold">What Our Clients Have to Say</p> --}}
+                            <q class="font-monospace">Booking a tour with Ceylonia Travels was the best decision I made for my Sri Lankan adventure. 
+                                The attention to detail and personalized experience made every moment memorable. 
+                                From the ancient wonders to the scenic train rides, every day was a new discovery.
+                            </q>
+                            <hr/>
+                            <p class="font-monospace">name <br/> country</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="col-7 review-bg p-4 text-justify">
+                            {{-- <p class="fw-bold">What Our Clients Have to Say</p> --}}
+                            <q class="font-monospace">Booking a tour with Ceylonia Travels was the best decision I made for my Sri Lankan adventure. 
+                                The attention to detail and personalized experience made every moment memorable. 
+                                From the ancient wonders to the scenic train rides, every day was a new discovery.
+                            </q>
+                            <hr/>
+                            <p class="font-monospace">name <br/> country</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-1">
-                       
-                    </div>
-                    <div class="col-7 review-bg p-4 text-justify">
-                        {{-- <p class="fw-bold">What Our Clients Have to Say</p> --}}
-                        <q class="font-monospace">Booking a tour with Ceylonia Travels was the best decision I made for my Sri Lankan adventure. 
-                            The attention to detail and personalized experience made every moment memorable. 
-                            From the ancient wonders to the scenic train rides, every day was a new discovery.
-                        </q>
-                        <hr/>
-                        <p class="font-monospace">name <br/> country</p>
-                        <img src="" alt="Arrow head image">
-                    </div>
-                </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
 
         </div>
 

@@ -20,11 +20,6 @@
     color: rgb(255, 255, 255);
 }
 
-.section-bg-color-home{
-    background-color: rgba(104, 137, 255, 0.121);
-
-}
-
 ol {
     list-style-type: none; /* Remove default numbering */
     counter-reset: item; /* Reset the counter */
@@ -53,12 +48,18 @@ ol li:before {
     
 }
 
+.section-bg-color-home{
+    background-color: rgba(104, 137, 255, 0.121);
+
+}
+
 .review-bg{
     background-color: white;
     border-radius: 10px;
     border-block-start-width: 5px;
     border-style:initial;
     height: 400px;
+    margin-left: 300px;
 
 }
 

@@ -7,6 +7,13 @@
     border-style: ridge;
 }
 
+.active .menu-item {
+    font-weight: bold;
+    border-bottom: 2px outset rgba(0, 0, 0, 0.511); 
+    background-color: rgba(255, 255, 255, 0.267);
+    border-radius: 6px;
+}
+
 .highlighted {
     background-color: #000000;
     color: white;

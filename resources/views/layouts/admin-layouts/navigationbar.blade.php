@@ -5,17 +5,17 @@
             <h2 class="mt-4">SriLankaTours</h2>
             <div class="position-sticky">
                 <ul class="nav flex-column SideMenuPosition">
-                    <li class="nav-item list-bg">
+                    <li class="nav-item list-bg mb-2">
                         <a class="nav-link active font-style" aria-current="page" href="#" onclick="changeColor(this)">
                             Dashboard 
                         </a>
                     </li>
-                    <li class="nav-item list-bg">
+                    <li class="nav-item list-bg mb-2">
                         <a class="nav-link font-style" href="#" onclick="changeColor(this)">
                             Settings
                         </a>
                     </li>
-                    <li class="nav-item list-bg">
+                    <li class="nav-item list-bg ">
                         <a class="nav-link font-style" href="#" onclick="changeColor(this)">
                             Manage Users
                         </a>
@@ -23,12 +23,12 @@
 
                     <hr>
 
-                    <li class="nav-item list-bg">
+                    <li class="nav-item list-bg mb-2">
                         <a class="nav-link font-style" href="#" onclick="changeColor(this)">
                             Bookings
                         </a>
                     </li>
-                    <li class="nav-item list-bg">
+                    <li class="nav-item list-bg mb-2">
                         <a class="nav-link font-style" href="#" onclick="changeColor(this)">
                             Messages
                         </a>
@@ -41,7 +41,7 @@
 
                     <hr>
 
-                    <li class="nav-item list-bg">
+                    <li class="nav-item list-bg mb-2">
                         <a class="nav-link font-style" href="#" onclick="changeColor(this)">
                             Add Travel Packages
                         </a>
@@ -54,16 +54,14 @@
 
                     <hr>
                     
-                    <li class="nav-item" style="margin-top: 100px;">
-                        {{-- <a class="nav-link" href="#">
-                            Log Out
-                        </a> --}}
+                    <li class="nav-item" style="margin-top: 60px;">
                          <!-- Authentication -->
                          <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="btn nav-link">{{ __('Log Out') }}</button>
                         </form>
                     </li>
+                    
                 </ul>
             </div>
         </nav>

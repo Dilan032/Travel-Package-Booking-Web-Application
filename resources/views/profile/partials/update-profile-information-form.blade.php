@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between">
     <div>
         <h2 style="margin-top: -10px">Profile Information</h2>
-        <pre>Update your account's profile information.</pre>
+        <br>
     </div>
 
     {{-- display massage --}}
@@ -68,25 +68,6 @@
         <input name="user_country" type="text" value="{{ old('country', $user->user_country) }}" class="form-control" id="exampleFormControlInput1" >
     </div>
 
-    {{-- <div class="row"> --}}
-        {{-- <div class="col">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Select Country</label>
-            <select name="country" class="form-select" aria-label="Default select example">
-                <option selected value="{{ old('country', $user->user_country) }}">{{$user->user_country}} </option>
-                <option value="{{ old('country', $user->user_country) }}">One</option>
-                <option value="{{ old('country', $user->user_country) }}">Two</option>
-                <option value="{{ old('country', $user->user_country) }}">Three</option>
-            </select>
-        </div> --}}
-        {{-- <div class="col">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Select Gender</label>
-                <select name="gender" class="form-select" aria-label="Default select example">
-                    <option selected value="{{ old('gender', $user->gender) }}">{{$user->gender}}</option>
-                    <option value="{{ old('gender', $user->gender) }}">Male</option>
-                    <option value="{{ old('gender', $user->gender) }}">Female</option>
-                </select>
-        </div> --}}
-    {{-- </div> --}}
     <button type="submit" class="btn btn-primary mt-2">{{ __('Save') }}</button>
 </form>
 
