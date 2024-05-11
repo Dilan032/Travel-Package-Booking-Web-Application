@@ -11,22 +11,6 @@
 <body>
     @include('layouts.admin-layouts.navigationbar')
     
-
-
-    <script>
-        function changeColor(element) {
-            // Remove 'active' class from all links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                link.style.backgroundColor = ''; // Remove background color
-            });
-    
-            // Add 'active' class to the clicked link
-            element.classList.add('active');
-            element.style.backgroundColor = 'black'; // Set background color
-
-        }
-    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
