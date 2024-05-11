@@ -3,31 +3,28 @@
 }
 
 .SideMenuPosition{
-    margin-top: 70px;
-    font-size: larger;
+    margin-top: 20px;
 }
 
 .list-bg{
     background-color: rgb(255, 255, 255);
-    /* border-bottom: 2px;
-    border-color: black; */
-    /* border-width: 2px;
-    border-style:inset; */
     border-radius: 10px;
 }
 
 .font-style{
     text-decoration: none;
     color: black;
-    /* font-weight: bold; */
 }
 
 .font-style.active {
-    color: rgb(255, 255, 255); /* Color when active */
     font-weight: bolder;
+    border-bottom: 3px outset rgba(0, 0, 0, 0.932); 
+    background-color: rgba(104, 137, 255, 0.121);
+    border-radius: 4px;
 }
 
-.active {
-    background-color: rgb(0, 0, 0);
+.dashbord-icon{
+    height: 35px;
+    padding: 5px;
 }
 

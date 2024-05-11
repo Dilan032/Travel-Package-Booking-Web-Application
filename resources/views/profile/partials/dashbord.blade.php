@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
     <h2>My Profile</h2>
-    {{-- <a href="{{ route('profile.edit') }}" class="fs-6">Edit Profile</a> --}}
+    <a href="{{ route('profile.edit') }}" class="fs-6">Edit Profile</a>
 </div>
 
 {{-- User Details --}}

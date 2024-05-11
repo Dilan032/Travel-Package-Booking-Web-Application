@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="row">
-    <div class="col-3">
+    <div class="col-2">
         @include('profile.partials.sideMenu')
     </div>
 
-    <div class="col-5 mx-auto p-4 dashbord-bg">
+    <div class="col-10 mx-auto p-4 dashbord-bg">
         @include('profile.partials.bookingDetails')
     </div>
 </div>
