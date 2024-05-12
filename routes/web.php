@@ -5,36 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 
-// For navigationBar user
-Route::get('/package', function () {
-    return view('user/package');
-})->name('package');
-
-Route::get('/package/page', function () {
-    return view('user/packagePage');
-})->name('packagePage');
-
-Route::get('/aboutUs', function () {
-    return view('user/aboutUs');
-})->name('aboutUs');
-
-Route::get('/contactUs', function () {
-    return view('user/contactUs');
-})->name('contactUs');
-
-Route::get('/blog', function () {
-    return view('user/blog');
-})->name('blog');
-
-Route::get('/blogPage', function () {
-    return view('user/blogPage');
-})->name('blogPage');
-
-
-// home page
-Route::get('/', function () {
-    return view('user/home');
-})->name('home');
+//for user navigationbar  
+Route::view('/', 'user/home')->name('home');
+Route::view('/package', 'user/package')->name('package');
+Route::view('/package/page', 'user/packagePage')->name('packagePage');
+Route::view('/aboutUs', 'user/aboutUs')->name('aboutUs');
+Route::view('/contactUs', 'user/contactUs')->name('contactUs');
+Route::view('/blog', 'user/blog')->name('blog');
+Route::view('/blogPage', 'user/blogPage')->name('blogPage');
 
 
 // Route::get('/dashboard', function () {
