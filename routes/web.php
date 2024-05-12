@@ -22,7 +22,7 @@ Route::view('/admin/booking', 'admin.bookingDetails')->name('admin.booking');
 Route::view('/admin/massage', 'admin.masage')->name('admin.massage');
 Route::view('/admin/review', 'admin.review')->name('admin.review');
 Route::view('/admin/addPackage', 'admin.addtravelPackage')->name('admin.addPackage');
-Route::view('/admin/addBlog', 'admin.addTravelPackage')->name('admin.addBlog');
+Route::view('/admin/addBlog', 'admin.addBlog')->name('admin.addBlog');
 
 
 // Route::get('/dashboard', function () {
