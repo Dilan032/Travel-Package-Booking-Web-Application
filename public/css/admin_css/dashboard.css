@@ -18,9 +18,11 @@
 
 .font-style.active {
     font-weight: bolder;
-    border-bottom: 3px outset rgba(0, 0, 0, 0.932); 
-    background-color: rgba(104, 137, 255, 0.121);
+    /* border-bottom: 1px outset rgba(245, 245, 245, 0.511);  */
+    border-left: 6px outset rgba(0, 0, 0, 0.511);
+    background-color: rgba(90, 103, 245, 0.095);
     border-radius: 4px;
+    color: blue;
 }
 
 .dashbord-icon{

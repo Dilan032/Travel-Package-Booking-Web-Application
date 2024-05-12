@@ -20,7 +20,7 @@
                 Change Password
             </div>
         </a>
-        <a class="{{ request()->is('profile') ? 'active' : '' }}" href="{{ route('profile.destroy') }}">
+        <a class="{{ request()->is('profile') ? 'active' : '' }}" href="{{ route('profile.Booking') }}">
             <div class="p-2 g-col-6 mouse-hand menu-item" >
                 <img src="{{ asset('image/help-tools/delete.png') }}" class="dashbord-icon" alt="dashbord-icon">
                 Delete Account
