@@ -14,6 +14,16 @@ Route::view('/contactUs', 'user/contactUs')->name('contactUs');
 Route::view('/blog', 'user/blog')->name('blog');
 Route::view('/blogPage', 'user/blogPage')->name('blogPage');
 
+// for admin panel navigation
+Route::view('/admin/dashboard', 'admin.adminHome')->name('admin.home');
+Route::view('/admin/setting', 'admin.setting')->name('admin.setting');
+Route::view('/admin/manageUsers', 'admin.manageUsers')->name('admin.manageUsers');
+Route::view('/admin/booking', 'admin.bookingDetails')->name('admin.booking');
+Route::view('/admin/massage', 'admin.masage')->name('admin.massage');
+Route::view('/admin/review', 'admin.review')->name('admin.review');
+Route::view('/admin/addPackage', 'admin.addtravelPackage')->name('admin.addPackage');
+Route::view('/admin/addBlog', 'admin.addTravelPackage')->name('admin.addBlog');
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -29,15 +39,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// for user profile
 Route::get('/profile/Booking', [BookingController::class, 'index'])->name('profile.Booking');
 Route::get('/profile/invoice', [BookingController::class, 'indexInvoice'])->name('profile.Invoice');
 
-// for admin panel navigation
-Route::view('/admin/dashboard', 'admin.adminHome')->name('admin.home');
-Route::view('/admin/setting', 'admin.setting')->name('admin.setting');
-Route::view('/admin/manageUsers', 'admin.manageUsers')->name('admin.manageUsers');
-Route::view('/admin/booking', 'admin.bookingDetails')->name('admin.booking');
-Route::view('/admin/massage', 'admin.masage')->name('admin.massage');
-Route::view('/admin/review', 'admin.review')->name('admin.review');
-Route::view('/admin/addPackage', 'admin.addtravelPackage')->name('admin.addPackage');
-Route::view('/admin/addBlog', 'admin.addTravelPackage')->name('admin.addBlog');
