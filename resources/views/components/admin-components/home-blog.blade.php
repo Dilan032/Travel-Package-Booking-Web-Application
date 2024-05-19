@@ -4,17 +4,21 @@
         @foreach ($blogs as $blogPost)  
           <div class="col-md-3 p-4">
             <div class="blog-post-container post-bg">
+              
+              <div style="height: 200px;">
               {{-- image --}}
               @if ($blogPost-> image != "")
                 <img src="{{ asset('image/uploads/blog/'.$blogPost-> image) }}" alt="Blog Post Image" class="object-fit-contain img-fluid imageHoverEffect">
               @else
                 <img src="{{ asset('image/uploads/blog/empty-image.png') }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
               @endif
+              </div>
 
-              <hr>
-              
-              <h5><a href="#">  {{ $blogPost->title}}  </a></h5>
-              <p>  {{ \carbon\carbon::parse($blogPost->created_at)->format('d M, Y') }} </p>
+              <hr> 
+              <div style="height: 150px;">
+                <h5><a href="#">  {{ $blogPost->title}}  </a></h5>
+                <p>  {{ \carbon\carbon::parse($blogPost->created_at)->format('d M, Y') }} </p>
+              </div>
               
               {{-- buttons --}}
               <div class="d-flex justify-content-start gap-1">
