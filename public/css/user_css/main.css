@@ -2,3 +2,8 @@
     margin-bottom: 130px;
 
 }
+
+btn:hover{
+    padding: 15px 30px; 
+    font-size: large;
+}

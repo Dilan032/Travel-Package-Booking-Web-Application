@@ -9,7 +9,7 @@
             <pre>Admin Panel</pre>
             <div class="position-sticky">
                 <ul class="nav flex-column SideMenuPosition">
-                    <li class="nav-item list-bg ">
+                    <li class="nav-item list-bg">
                         <a class="nav-link font-style {{ request()->is('admin/dashboard') ? 'active' : '' }}" aria-current="page" href="{{route('admin.home')}}">
                             <img src="{{ asset('image/help-tools/dashboard.png') }}" class="dashbord-icon" alt="dashbord-icon">   
                             Dashboard 
@@ -54,13 +54,13 @@
                     <li class="nav-item list-bg">
                         <a class="nav-link font-style {{ request()->is('admin/addPackage') ? 'active' : '' }}" href="{{route('admin.addPackage')}}">
                             <img src="{{ asset('image/help-tools/add-packages.png') }}" class="dashbord-icon" alt="dashbord-icon">   
-                            Add Travel Packages
+                            Travel Packages
                         </a>
                     </li>
                     <li class="nav-item list-bg">
                         <a class="nav-link font-style {{ request()->is('admin/addBlog') ? 'active' : '' }}" href="{{route('admin.addBlog')}}">
                             <img src="{{ asset('image/help-tools/add-blog-post.png') }}" class="dashbord-icon" alt="dashbord-icon">   
-                            Add Blog Post
+                            Blog Posts
                         </a>
                     </li>
 

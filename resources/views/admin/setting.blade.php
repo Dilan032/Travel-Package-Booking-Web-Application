@@ -6,7 +6,8 @@
         <h2 class="fw-light">Settings</h2>
     </div>
     <div class="container">
-    <!-- Your dashboard content goes here -->
+    
+
     </div>
 </main>
 

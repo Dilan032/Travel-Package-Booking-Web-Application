@@ -9,3 +9,24 @@
 .text-justify {
     text-align: justify;
 }
+
+.blog-post-container {
+    padding: 10px; 
+    margin-bottom: 15px; 
+    height: 450px; 
+    border-radius: 10px;
+    
+  }
+
+  .post-bg{
+    background-color: rgba(104, 137, 255, 0.121);
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transitions */
+  }
+
+  .post-bg:hover{
+    background-color: rgba(104, 137, 255, 0.121);
+    transform: scale(1.05); /* Slight zoom on hover */
+   
+  }
+
+

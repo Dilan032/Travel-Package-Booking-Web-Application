@@ -3,50 +3,44 @@
 
 @section('content')
 
-    <div class="container mb-5"> 
-
+<div class="container mb-5"> 
       <div class="d-flex">
         {{-- back to package btn --}}
         <a href="{{ route('blog') }}">
           <img src="{{ asset('image/help-tools/home.svg') }}" width="40px" alt="home">
         </a>
-        <p class="mt-3">Blog > Blog Name</p>
+        <p class="mt-3">Blog > {{ $blog->title}} </p>
       </div>
     
     {{-- blog title --}}
     <div class="text-center mt-1">
-      <h2>Travel Sri Lanka with Tours: Exploring the Wonders of Sri Lanka</h2>
-      <pre>Dec 15, 2024</pre>
+      <h2> {{ $blog->title}} </h2>
+      <pre> {{ \carbon\carbon::parse($blog->created_at)->format('d M, Y') }} </pre>
     
+      {{-- blog main section --}}
+      <div class="row mt-5">
+        <div class="col-2">
+          {{-- <h6>recent blog posts </h6> --}}
+        </div>
 
-    {{-- main image --}}
-      <img src="{{ asset('image/blog-image/blog-page-image/image1.svg') }}" class="rounded object-fit-contain border rounded" alt="main image">
-      <div class="text-justify ">
-        <p class="mt-3 lh-lg" >
-        
-          Sigiriya, Sri Lanka, is a small town that has become famous because of one particular attraction – Sigiriya Rock. It’s easily one of the most amazing places to see in Sri Lanka.
-          Although I loved my visit to the rock temple, there are so many other things to do in Sigiriya and nearby that I loved too!
-          In fact, Sigirya became one of my favorite places in Sri Lanka. Not only are there three of Sri Lanka’s best national parks nearby, but the delicious food and friendly locals made it a trip to remember.
-          I loved Sigiriya, and I discovered a side to the town that most people don’t about. With all of the exploring I did, I found 21 amazing things to do in Sigiriya (and only one of them involves climbing Sigiriya Rock.)
-          So, if you want to explore the cultural center of Sri Lanka, then this list of places to visit in Sigiriya and things to do is a great place to start!
-    
-        </p> 
-      </div>  
+        <div class="col-8">
+            {{-- image --}}
+            @if ($blog-> image != "")
+              <img src="{{ asset('image/uploads/blog/'.$blog-> image) }}" class="rounded  border rounded" alt="main image" width="100%">
+            @else
+              <img src="{{ asset('image/uploads/blog/empty-image.png') }}" class="rounded  border rounded" alt="main image">
+            @endif
+            <div class="text-justify ">
+              <p class="mt-3 lh-lg" >
+                {{$blog->discription}}
+              </p> 
+            </div> 
+        </div>
 
-    {{-- second image --}}
-     {{-- main image --}}
-     <img src="{{ asset('image/blog-image/blog-page-image/image2.svg') }}" class=" mt-5 rounded object-fit-contain border rounded" alt="main image">
-     <div class="text-justify">
-       <p class="mt-3 lh-lg">
-       
-        As I said before, the main attraction in Sigiriya is Sigiriya Rock. This rock is huge and is really a sight to see if you ask me. From miles away you can spot Sigiriya Rock seemingly out of place as it protrudes high into the sky.
-        King Kashyapa chose the rock back in 477 AD to be his new capital. He built the palace on Sigiriya Rock, and about halfway up, he also built an enormous lion used as a gateway. The entire structure is very impressive, and before climbing the rock, I recommend you visit the museum below to read up on the area.
-        I myself compare Sigiriya Rock to places such as Machu Picchu simply because of the huge effort that was needed to construct such a large palace on a free-standing rock.
-        It takes around 2 hours to climb Sigiriya Rock if you take your time and enjoy the views. However, some people do take longer, especially if you’re visiting during the hottest part of the day (there are 1,200 steps.) The entrance fee to Sigiriya Rock is $30 USD and includes a visit to the Sigiriya Museum.
-
-       </p>
-     </div>
-    
+        <div class="col-2">
+        </div>
+      
+      </div>
     </div>
   </div>
 
