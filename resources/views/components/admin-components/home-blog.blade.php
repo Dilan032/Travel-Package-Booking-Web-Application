@@ -19,7 +19,7 @@
               {{-- buttons --}}
               <div class="d-flex justify-content-start gap-1">
                 <a href="{{route('admin.editBlog',$blogPost->id)}}" class="btn btn-primary btn-sm">Update</a>
-                <a href="#" class="btn btn-secondary btn-sm">View</a>
+                <a href="{{route('blog.page', $blogPost->id)}}" class="btn btn-secondary btn-sm" target="_blank">View</a>
                 
                 {{-- button for delete the blog post --}}
                 <a href="#" onclick="deleteBlogPost({{ $blogPost->id}});" class="btn btn-danger btn-sm">Delete</a>
