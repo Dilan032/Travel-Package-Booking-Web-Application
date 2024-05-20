@@ -74,12 +74,12 @@
             
             <div class="mt-3">
               <label for="message-text" class="col-form-label fw-semibold">Overview</label>
-              <textarea name="overview" value="{{old('overview')}}"  class="form-control" rows="5"> {{old('blogTitle')}} </textarea>
+              <textarea name="overview" value="{{old('overview')}}"  class="form-control" rows="5">  </textarea>
             </div>
 
             <div class="mt-3">
                 <label for="message-text" class="col-form-label fw-semibold">Include Things</label>
-                <textarea name="included_things" value="{{old('included_things')}}" class="form-control" id="includeThings" rows="5"> {{old('blogTitle')}} </textarea>
+                <textarea name="included_things" value="{{old('included_things')}}" class="form-control" id="includeThings" rows="5">  </textarea>
             </div>
 
             {{-- <div class="mt-3">
@@ -89,7 +89,7 @@
 
             <div class="mt-3">
                 <label for="message-text" class="col-form-label fw-semibold">Tour Plane Title & Description</label>
-                <textarea name="tour_plane_description" value="{{old('tour_plane_description')}}"  class="form-control" id="tourPlaneDescription" rows="5"> {{old('blogTitle')}} </textarea>
+                <textarea name="tour_plane_description" value="{{old('tour_plane_description')}}"  class="form-control" id="tourPlaneDescription" rows="5">  </textarea>
             </div>
 
             <div class="mt-3">

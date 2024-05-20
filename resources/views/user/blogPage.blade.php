@@ -32,7 +32,7 @@
             @endif
             <div class="text-justify ">
               <p class="mt-3 lh-lg" >
-                {{$blog->discription}}
+                {!! $blog->discription !!}
               </p> 
             </div> 
         </div>

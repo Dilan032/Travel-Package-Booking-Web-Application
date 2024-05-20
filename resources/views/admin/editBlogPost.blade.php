@@ -56,7 +56,7 @@
             {{-- blog Description --}}
             <div class="mb-3">
                 <label for="message-text" class="col-form-label fw-semibold">Description</label>
-                <textarea name="description"  class="form-control" id="message-text" rows="10"> {{old('description',$blog->discription)}} </textarea>
+                <textarea name="description"  class="form-control" id="blogDescription" rows="10"> {{old('description',$blog->discription)}} </textarea>
             </div>
             
             <div class="modal-footer mb-5">

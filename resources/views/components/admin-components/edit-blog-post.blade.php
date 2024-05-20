@@ -15,7 +15,7 @@
             </div>
             <div class="mb-3">
               <label for="message-text" class="col-form-label fw-semibold">Description</label>
-              <textarea name="description"  class="form-control" id="message-text" rows="5"> {{old('blogTitle')}} </textarea>
+              <textarea name="description"  class="form-control" id="blogDescription" rows="5"> {{old('blogTitle')}} </textarea>
             </div>
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label fw-semibold">Image</label>

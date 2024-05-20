@@ -41,6 +41,7 @@
                 console.error( error );
             } );
     </script>
+
     <script>
         ClassicEditor
             .create( document.querySelector( '#includeThings' ) )
@@ -48,6 +49,15 @@
                 console.error( error );
             } );
     </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#blogDescription' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
 
 </body>
 </html>
