@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
             [
                 'name' => 'Amal',
                 'email'=> 'dilankanishka2104@gmail.com',
-                'password' => Hash::make('2104'),
+                'password' => Hash::make('12345678'),
                 'user_country' => 'japan',
                 'role' => 'user',
             ],

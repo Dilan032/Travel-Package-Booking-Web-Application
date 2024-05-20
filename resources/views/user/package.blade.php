@@ -72,51 +72,10 @@
                         <hr>
                     </div>
 
-                    <table class="table table-borderless ms-5">
-                        <tr>
-                            <td> {{-- Packages cart 1 --}}
-                                <a href="{{ route('packagePage') }}" class="no-decoration">
-                                    <div class="card d-inline-flex p-1" style="width: 16rem;">
-                                        <img src="{{ asset('image/cart_image1.png') }}" class="card-img-top object-fit-fill" alt="...">
-                                            <div class="card-body">
-                                                <p>time . category</p>
-                                                <h5 class="card-title">Day Tour to Kandy</h5>
-                                                <p class="card-text">Explore the Rich Heritage of Kandy with a Visit to Pinnawala Elephant Orphanage</p>
-                                            </div>
+                    {{-- All travel packages --}}
+                    @include('components.user-components.home-travelPackage')
 
-                                    </div>
-                                </a>
-                            </td>
 
-                            <td>  {{-- Packages cart 2 --}}           
-                                <a href="{{ route('packagePage') }}" class="no-decoration">
-                                    <div class="card d-inline-flex p-1" style="width: 16rem;">
-                                        <img src="{{ asset('image/cart_image1.png') }}" class="card-img-top object-fit-fill" alt="...">
-                                            <div class="card-body">
-                                                <p>time . category</p>
-                                                <h5 class="card-title">Day Tour to Kandy</h5>
-                                                <p class="card-text">Explore the Rich Heritage of Kandy with a Visit to Pinnawala Elephant Orphanage</p>
-                                            </div>
-
-                                    </div>
-                                </a>
-                            </td>
-
-                            <td> {{-- Packages cart 3 --}}
-                                <a href="{{ route('packagePage') }}" class="no-decoration">
-                                    <div class="card d-inline-flex p-1" style="width: 16rem;">
-                                        <img src="{{ asset('image/cart_image1.png') }}" class="card-img-top object-fit-fill" alt="...">
-                                            <div class="card-body">
-                                                <p>time . category</p>
-                                                <h5 class="card-title">Day Tour to Kandy</h5>
-                                                <p class="card-text">Explore the Rich Heritage of Kandy with a Visit to Pinnawala Elephant Orphanage</p>
-                                            </div>
-
-                                    </div>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
                 </div> 
             </div>
 

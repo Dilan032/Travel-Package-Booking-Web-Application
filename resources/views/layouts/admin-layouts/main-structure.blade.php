@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/user_css/profile.css') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_css/admin-blog.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_css/admin-package.css') }}">
     <title>Admin Dashboard</title>
 </head>
 <body>
@@ -23,7 +24,31 @@
 
     @yield('admincontent')
     
+
+
+
+
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    {{-- this script forCKEditor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#tourPlaneDescription' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#includeThings' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
 </body>
 </html>
 

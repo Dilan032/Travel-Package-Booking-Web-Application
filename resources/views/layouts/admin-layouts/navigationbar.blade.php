@@ -52,7 +52,7 @@
                     <hr class="border border-2 opacity-100">
 
                     <li class="nav-item list-bg">
-                        <a class="nav-link font-style {{ request()->is('admin/addPackage') ? 'active' : '' }}" href="{{route('admin.addPackage')}}">
+                        <a class="nav-link font-style {{ request()->is('admin/showPackage') ? 'active' : '' }}" href="{{route('admin.travelPackage.show')}}">
                             <img src="{{ asset('image/help-tools/add-packages.png') }}" class="dashbord-icon" alt="dashbord-icon">   
                             Travel Packages
                         </a>

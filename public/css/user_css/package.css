@@ -1,6 +1,7 @@
 .filter-bg{
     background-color: rgba(104, 137, 255, 0.121);
     border-radius: 6px;
+    height: 500px;
 }
 
 .after-filter-bg{

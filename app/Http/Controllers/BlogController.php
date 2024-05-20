@@ -42,7 +42,7 @@ class BlogController extends Controller
         $rules =[
             'blogTitle' => 'required|string|max:255',
             'description' => 'required|string',
-            'blogImage' => 'image|mimes:jpeg,svg,png,jpg,gif|max:10240', // Ensure image file, max 10MB
+            'blogImage' => 'image|mimes:jpeg,svg,png,webp,jpg,gif|max:10240', // Ensure image file, max 10MB
         ];
 
         $validator = Validator::make($request->all(),  $rules);

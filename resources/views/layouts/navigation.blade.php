@@ -15,7 +15,7 @@
                 <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ request()->is('package') || request()->is('package/page') ? 'active' : '' }}" href="{{ route('package') }}">Package</a>
+                <a class="nav-link {{ request()->is('package') || request()->is('package/page') ? 'active' : '' }}" href="{{ route('user.travelPackage.show') }}">Package</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ request()->is('aboutUs') ? 'active' : '' }}" href="{{ route('aboutUs') }}">About Us</a>

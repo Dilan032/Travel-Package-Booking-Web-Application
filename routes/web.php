@@ -5,14 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\TravelPackageController;
 
 //for user navigationbar  
 Route::view('/', 'user/home')->name('home');
-Route::view('/package', 'user/package')->name('package');
-Route::view('/package/page', 'user/packagePage')->name('packagePage');
 Route::view('/aboutUs', 'user/aboutUs')->name('aboutUs');
 Route::view('/contactUs', 'user/contactUs')->name('contactUs');
-// Route::view('/blog', 'user/blog')->name('blog');
 Route::view('/blogPage', 'user/blogPage')->name('blogPage');
 
 // for admin panel navigation
@@ -22,7 +20,6 @@ Route::view('/admin/manageUsers', 'admin.manageUsers')->name('admin.manageUsers'
 Route::view('/admin/booking', 'admin.bookingDetails')->name('admin.booking');
 Route::view('/admin/massage', 'admin.masage')->name('admin.massage');
 Route::view('/admin/review', 'admin.review')->name('admin.review');
-Route::view('/admin/addPackage', 'admin.addtravelPackage')->name('admin.addPackage');
 Route::view('/admin/addBlog', 'admin.addBlog')->name('admin.addBlog');
 
 
@@ -54,6 +51,20 @@ Route::controller(BlogController::class)->group(function(){
 });
 
 
-// for user 
+// for user | show Blog & post 
 Route::get('/blog', [BlogController::class, 'showBlogsForUser'])->name('blog');
 Route::get('/blog/page{blogPost}', [BlogController::class, 'showBlogPageForUser'])->name('blog.page');
+
+
+//admin Travel Package
+Route::Get('admin/addPackage/page', [TravelPackageController::class, 'index'])->name('admin.addPackage.create');
+Route::post('admin/addPackage/page', [TravelPackageController::class, 'store'])->name('admin.addPackage.store');
+Route::get('/admin/showPackage', [TravelPackageController::class, 'showForAdmin'])->name('admin.travelPackage.show');
+
+// for user | show Travel Packages & Package page 
+Route::get('package', [TravelPackageController::class, 'showForUser'])->name('user.travelPackage.show');
+Route::get('/package/page{TravelPackage}', [TravelPackageController::class, 'showTravelPackagePage'])->name('user.packagePage');
+Route::get('/package/page{TravelPackage}/edit', [TravelPackageController::class, 'edit'])->name('admin.editTravelPackage');
+Route::put('/package/page{TravelPackage}', [TravelPackageController::class, 'update'])->name('admin.updateTravelPackage');
+
+Route::delete('/package/page{TravelPackage}', [TravelPackageController::class, 'destroy'])->name('admin.deleteTravelPackage');
