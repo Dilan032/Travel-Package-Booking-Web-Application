@@ -66,5 +66,4 @@ Route::get('package', [TravelPackageController::class, 'showForUser'])->name('us
 Route::get('/package/page{TravelPackage}', [TravelPackageController::class, 'showTravelPackagePage'])->name('user.packagePage');
 Route::get('/package/page{TravelPackage}/edit', [TravelPackageController::class, 'edit'])->name('admin.editTravelPackage');
 Route::put('/package/page{TravelPackage}', [TravelPackageController::class, 'update'])->name('admin.updateTravelPackage');
-
 Route::delete('/package/page{TravelPackage}', [TravelPackageController::class, 'destroy'])->name('admin.deleteTravelPackage');

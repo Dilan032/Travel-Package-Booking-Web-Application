@@ -162,13 +162,13 @@
                 {{-- select number of adults --}}
                 <label for="adult" class="fw-bold">Adult</label>
                 <div class="form-floating mb-3">
-                  <input type="number" name="adults" value="0" min="0" class="form-control" id="floatingInput" placeholder="Adult" required>
+                  <input type="number" id="adults" name="adults" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Adult" required>
                   <label for="floatingInput">(Age 18+) ${{ $travelPackage->per_adult_fee}} per person</label>
                 </div>
                 {{-- select number of Child --}}
                 <label for="Child" class="fw-bold">Child</label>
                 <div class="form-floating mb-3">
-                  <input type="number" name="Child" value="0" min="0" class="form-control" id="floatingInput" placeholder="Child" required>
+                  <input type="number" id="children" name="children" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Child" required>
                   <label for="floatingInput">(Age 6-17)  ${{ $travelPackage->per_child_fee}} per person</label>
                 </div>
 
@@ -183,19 +183,18 @@
                 <div class="d-flex fw-bold mt-3 fs-5">
                   <label for="service_fee" class="flex-grow-1 ms-2">Service fee: </label>
                   <label for="fee" class="me-3">${{ $travelPackage->service_fee}}</label>
-                  {{-- <input type="hidden"  name="service_fee" value="50.00" readonly><br> --}}
+                  
                 </div>
 
                 <div class="d-flex fw-bold fs-5">
                   <label for="Booking_fee" class="flex-grow-1 ms-2">Booking fee: </label>
                   <label for="fee" class="me-3">${{ $travelPackage->booking_fee}}</label>
-                  {{-- <input type="hidden"  name="Booking_fee" value="50.00" readonly><br> --}}
+                  
                 </div>
 
                 <div class="d-flex fw-bold fs-5 text-white bg-dark">
                   <label for="Total_fee" class="flex-grow-1 ms-2">Total fee: </label>
-                  <label for="fee" class="me-3 ">$150.00</label>
-                  {{-- <input type="hidden" name="Total_fee" value="50.00" readonly><br><br> --}}
+                  <input type="number"  id="totalPrice" name="totalPrice" value="0" readonly>
                 </div>                
           
                 {{-- search button --}}
@@ -212,6 +211,20 @@
         <hr class="mb-5">
         
       </div>
+
+      <script>
+         const perAdultFee = {{$travelPackage->per_adult_fee}};
+         const perChildFee = {{$travelPackage->per_child_fee}};
+         const service_fee = {{ $travelPackage->service_fee}};
+         const booking_fee = {{ $travelPackage->booking_fee}};
+
+        function updateTotalPrice() {
+            const children = parseInt(document.getElementById('children').value) || 0;
+            const adults = parseInt(document.getElementById('adults').value) || 0;
+            const totalPrice = service_fee + booking_fee + (children * perChildFee) + (adults * perAdultFee);
+            document.getElementById('totalPrice').value = totalPrice;
+        }
+    </script>
       
 
 @endsection
