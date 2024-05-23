@@ -13,6 +13,6 @@ class Blog extends Model
     protected $table = 'blogs';
 
     protected $fillable = [
-        'title', 'discription', 'image', // Add other columns as needed
+        'title', 'discription', 'image',
     ];
 }

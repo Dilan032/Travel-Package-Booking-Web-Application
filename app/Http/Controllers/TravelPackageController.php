@@ -32,9 +32,9 @@ class TravelPackageController extends Controller
     {
         $rules =[
             'package_name' => 'required|string|max:255',
-            'image_1' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif|max:10240', // Ensure image file, max 10MB
-            'image_2' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif|max:10240', // Ensure image file, max 10MB
-            'image_3' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif|max:10240', // Ensure image file, max 10MB
+            'image_1' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
+            'image_2' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
+            'image_3' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
             'duration' => 'required|string|max:255',
             'duration_type' => 'required|in:Days,Hours',
             'tour_type' => 'required|in:Day Tour,Round Tour',
@@ -147,15 +147,15 @@ class TravelPackageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
         $travelPackage = travelPackage::findOrFail($id);
 
         $rules =[
             'package_name' => 'required|string|max:255',
-            'image_1' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif|max:10240', // Ensure image file, max 10MB
-            'image_2' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif|max:10240', // Ensure image file, max 10MB
-            'image_3' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif|max:10240', // Ensure image file, max 10MB
+            'image_1' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
+            'image_2' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
+            'image_3' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
             'duration' => 'required|string|max:255',
             'duration_type' => 'required|in:Days,Hours',
             'tour_type' => 'required|in:Day Tour,Round Tour',
@@ -172,12 +172,10 @@ class TravelPackageController extends Controller
         $validator = Validator::make($request->all(),  $rules);
         //to show massages | check validate
         if ($validator->fails()) {
-            return redirect()->route('admin.travelPackage.show')->withErrors($validator)->withInput();
+            return redirect()->route('admin.travelPackage.show', $travelPackage->id)->withErrors($validator)->withInput();
         }
 
         //to store data code here
-        // 1. connect with the model
-        $travelPackage = new travelPackage();
 
         //set the attribute
         $travelPackage->package_name = $request->package_name;
@@ -194,12 +192,22 @@ class TravelPackageController extends Controller
         $travelPackage->booking_fee = $request->booking_fee;
         $travelPackage->save();
 
+
+        
         //set the attribute for images
         //for image 1
         if ($request->hasFile('image_1')) {
+
+            //delete old image
+            $imagePath = public_path('upload/travelPackage/'.$travelPackage->image_1);
+            //check image is it defalt or not
+            if($travelPackage->image_1 !== 'empty-image.png' && File::exists( $imagePath)){
+                File::delete( $imagePath );
+            }
+                
             $image_1 = $request->file('image_1');
             $ext = $image_1->getClientOriginalExtension();
-            $imageName = time() . '.' . $ext;
+            $imageName = time() . uniqid('_img1_', true) . '.' . $ext;
             $image_1->move(public_path('image/uploads/travelPackage'), $imageName);
             $travelPackage->image_1 = $imageName;
             $travelPackage->save();
@@ -208,18 +216,34 @@ class TravelPackageController extends Controller
 
         //for image 2
         if ($request->hasFile('image_2')) {
+
+            //delete old image
+            $imagePath = public_path('upload/travelPackage/'.$travelPackage->image_2);
+            //check image is it defalt or not
+            if($travelPackage->image_2 !== 'empty-image.png' && File::exists( $imagePath)){
+                File::delete( $imagePath );
+            }
+
             $image_2 = $request->file('image_2');
             $ext = $image_2->getClientOriginalExtension();
-            $imageName = time() . '.' . $ext;
+            $imageName = time() . uniqid('_img2_', true) . '.' . $ext;
             $image_2->move(public_path('image/uploads/travelPackage'), $imageName);
             $travelPackage->image_2 = $imageName;
             $travelPackage->save();
         }
         //for image 3
         if ($request->hasFile('image_3')) {
+
+            //delete old image
+            $imagePath = public_path('upload/travelPackage/'.$travelPackage->image_3);
+            //check image is it defalt or not
+            if($travelPackage->image_3 !== 'empty-image.png' && File::exists( $imagePath)){
+                File::delete( $imagePath );
+            }
+
             $image_3 = $request->file('image_3');
             $ext = $image_3->getClientOriginalExtension();
-            $imageName = time() . '.' . $ext;
+            $imageName = time() . uniqid('_img3_', true) . '.' . $ext;
             $image_3->move(public_path('image/uploads/travelPackage'), $imageName);
             $travelPackage->image_3 = $imageName;
             $travelPackage->save();

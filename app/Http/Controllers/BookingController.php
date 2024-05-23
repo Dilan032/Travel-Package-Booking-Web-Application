@@ -4,15 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BookingController extends Controller
 {
+
+    public function showLoginView()
+    {
+        
+        return view('auth.login'); 
+        
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('profile.booking');
+        // $bookings = Booking::findOrFail($id);
+        $bookings = Booking::with('travelPackages')->orderBy('created_at', 'DESC')->get();
+        // $bookings = booking::orderBy('created_at','DESC')->get();
+        return view('profile.booking', compact('bookings')); // Pass data to the view
+        
     }
         /**
      * Display a invoice massage.
@@ -35,7 +48,38 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules =[
+           
+            'date' => 'required|date',
+            'number_of_adult' => 'required|integer',
+            'number_of_child' => 'required|integer',
+            'aditional_requarement' => 'nullable|string',
+            'total_fee' => 'required|numeric',
+
+        ];
+
+        $validator = Validator::make($request->all(),  $rules);
+        //to show massages | check validate
+        if ($validator->fails()) {
+            return redirect()->route('user.packagePage')->withErrors($validator)->withInput();
+        }
+
+        //to store data code here
+        // 1. connect with the model
+        $bookings = new booking();
+
+        //set the attribute
+        $bookings->travel_packages_id = $request->travel_packages_id;
+        $bookings->date = $request->date;
+        $bookings->number_of_adult = $request->number_of_adult;
+        $bookings->number_of_child = $request->number_of_child;
+        $bookings->aditional_requarement = $request->aditional_requarement;
+        $bookings->total_fee = $request->total_fee;
+        $bookings->save();
+        
+        // Process the validated data, such as saving it to the database
+        return redirect()->route('profile.Booking')->with('success', 'Travel Package Booking successfully');
+        
     }
 
     /**
@@ -43,7 +87,8 @@ class BookingController extends Controller
      */
     public function show(booking $booking)
     {
-        //
+        // $bookings = booking::orderBy('created_at','DESC')->get();
+        // return view('profile.booking', compact('bookings')); // Pass data to the view
     }
 
     /**

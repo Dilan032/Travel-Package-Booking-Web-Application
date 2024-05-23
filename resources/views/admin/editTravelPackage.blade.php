@@ -40,15 +40,43 @@
               <input type="text" name="package_name" value="{{old('package_name', $travelPackage->package_name)}}" class="form-control" id="recipient-name">
             </div>
 
+            {{-- current image show --}}
+            <div class="row mt-4">
+                <div class="col">                  
+                    {{-- image 1 --}}
+                    @if ($travelPackage-> image_1 != "")
+                        <img src="{{ asset('image/uploads/travelPackage/'.$travelPackage-> image_1) }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
+                    @else
+                        <img src="{{ asset('image/uploads/travelPackage/empty-image.png') }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
+                    @endif
+                </div>
+                <div class="col">                  
+                    {{-- image 2 --}}
+                    @if ($travelPackage-> image_2 != "")
+                        <img src="{{ asset('image/uploads/travelPackage/'.$travelPackage-> image_2) }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
+                    @else
+                        <img src="{{ asset('image/uploads/travelPackage/empty-image.png') }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
+                    @endif
+                </div>
+                <div class="col">                  
+                    {{-- image 3 --}}
+                    @if ($travelPackage-> image_3 != "")
+                        <img src="{{ asset('image/uploads/travelPackage/'.$travelPackage-> image_3) }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
+                    @else
+                        <img src="{{ asset('image/uploads/travelPackage/empty-image.png') }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
+                    @endif
+                </div>
+            </div>
+
             <div class="row g-3 mt-3 fw-bold">
                 <div class="col-sm">
-                  <input type="file" value="{{old('image_1')}}" name="image_1" class="form-control" placeholder="image 1" aria-label="City">
+                  <input type="file" value="{{old('image_1', $travelPackage->image_1)}}" name="image_1" class="form-control"  aria-label="City">
                 </div>
                 <div class="col-sm">
-                  <input type="file"  value="{{old('image_2')}}" name="image_2" class="form-control" placeholder="image 2" aria-label="State">
+                  <input type="file"  value="{{old('image_2', $travelPackage->image_2)}}" name="image_2" class="form-control" placeholder="image 2" aria-label="State">
                 </div>
                 <div class="col-sm">
-                  <input type="file"  value="{{old('image_3')}}" name="image_3" class="form-control" placeholder="image 3" aria-label="Zip">
+                  <input type="file"  value="{{old('image_3', $travelPackage->image_3)}}" name="image_3" class="form-control" placeholder="image 3" aria-label="Zip">
                 </div>
             </div>
 
@@ -118,7 +146,7 @@
 
             <div class="modal-footer gap-3 mt-3">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary">Save Package</button>
+              <button type="submit" class="btn btn-primary">Update Package</button>
             </div>
 
             <br>

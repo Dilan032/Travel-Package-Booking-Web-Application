@@ -1,0 +1,107 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\userMassage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+class UserMassageController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }
+
+     // for admin showBlogs
+     public function showMasage(){
+        $user_massages = userMassage::orderBy('created_at','DESC')->get();
+        return view('admin.massage', compact('user_massages')); // Pass data to the view
+        
+    }
+
+    //for user page contacUs
+    public function contactUsShow(){
+        return view('user.contactUs');
+        
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        {
+            $rules = [
+                'user_name' => 'required|string', 
+                'email' => 'required|email', 
+                'subject' => 'required|string', 
+                'description' => 'nullable|string', 
+            ];
+    
+            $validator = Validator::make($request->all(),  $rules);
+            //to show massages | check validate
+            if ($validator->fails()) {
+                return redirect()->route('contactUs')->withErrors($validator)->withInput();
+            }
+    
+            //to store data code here
+            // 1. connect with the model
+            $user_massages = new userMassage();
+    
+            //set the attribute
+            $user_massages->user_name = $request->user_name;
+            $user_massages->email = $request->email;
+            $user_massages->subject = $request->subject;
+            $user_massages->description = $request->description;
+            $user_massages->save();
+            
+            // Process the validated data, such as saving it to the database
+            return redirect()->route('contactUs')->with('success', 'Massage Send successfully');
+            
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(userMassage $userMassage)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(userMassage $userMassage)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, userMassage $userMassage)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(userMassage $userMassage)
+    {
+        //
+    }
+}

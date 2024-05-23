@@ -39,4 +39,10 @@ class travelPackage extends Model
         'service_fee' => 'decimal:2',
         'booking_fee' => 'decimal:2',
     ];
+
+     // Define the relationship with the Booking model
+     public function bookings()
+     {
+         return $this->hasMany(Booking::class, 'travel_packages_id');
+     }
 }

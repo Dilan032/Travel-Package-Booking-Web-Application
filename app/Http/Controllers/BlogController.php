@@ -97,7 +97,7 @@ class BlogController extends Controller
         $validator = Validator::make($request->all(),  $rules);
         //to show massages | check validate
         if ($validator->fails()) {
-            return redirect()->route('admin.editBlog, $blog->id')->withErrors($validator)->withInput();
+            return redirect()->route('admin.editBlog', $blog->id)->withErrors($validator)->withInput();
         }
 
         //to store data code here

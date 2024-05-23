@@ -4,6 +4,24 @@
 @section('content')
       <div class="container "> 
 
+      {{-- To display validation errors or success messages --}}
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul class="fw-medium">
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+              <li class="fw-light">try again</li>
+          </ul>
+      </div>
+      @endif
+
+      @if (session('success'))
+          <div class="alert alert-success">
+              {{ session('success') }}
+          </div>
+      @endif
+
         <div class="d-flex">
           {{-- back to package btn --}}
           <a href="{{ route('user.travelPackage.show') }}">
@@ -148,34 +166,38 @@
 
           </div>
 
+
+          @auth()
           {{-- Booking Form --}}
           <div class="col-5">
             <div class="d-flex justify-content-end pe-5">
               <div class="bokking-form p-3">
-
+                <form action="{{route('user.booking.store', $travelPackage->id)}}" method="post">
+                  @csrf
+                  <input type="hidden" name="travel_packages_id" value="{{ $travelPackage->id}}">
                   {{-- select date --}}
                 <label for="Arrival_Date" class="fw-bold">Arrival Date</label>
                 <div class="form-floating mb-3">
-                  <input type="date" class="form-control" id="floatingInput" placeholder="Select Date" required>
+                  <input type="date" class="form-control" name="date" id="floatingInput" placeholder="Select Date" required>
                   <label for="floatingInput">(required)</label>
                 </div>
                 {{-- select number of adults --}}
                 <label for="adult" class="fw-bold">Adult</label>
                 <div class="form-floating mb-3">
-                  <input type="number" id="adults" name="adults" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Adult" required>
+                  <input type="number" id="adults" name="number_of_adult" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Adult" required>
                   <label for="floatingInput">(Age 18+) ${{ $travelPackage->per_adult_fee}} per person</label>
                 </div>
                 {{-- select number of Child --}}
                 <label for="Child" class="fw-bold">Child</label>
                 <div class="form-floating mb-3">
-                  <input type="number" id="children" name="children" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Child" required>
+                  <input type="number" id="children" name="number_of_child" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Child" required>
                   <label for="floatingInput">(Age 6-17)  ${{ $travelPackage->per_child_fee}} per person</label>
                 </div>
 
                 {{-- Additional requests massge --}}
                 <label for="Additional_requests" class="fw-bold">Additional requests</label>
                 <div class="form-floating">
-                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 120px;"></textarea>
+                  <textarea class="form-control" name="aditional_requarement" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 120px;"></textarea>
                   <label for="floatingTextarea2">Write Your Message</label>
                 </div>
 
@@ -194,24 +216,31 @@
 
                 <div class="d-flex fw-bold fs-5 text-white bg-dark">
                   <label for="Total_fee" class="flex-grow-1 ms-2">Total fee: </label>
-                  <input type="number"  id="totalPrice" name="totalPrice" value="0" readonly>
+                  <input type="number"  id="totalPrice" name="total_fee" value="0" readonly>
                 </div>                
           
                 {{-- search button --}}
                 <div class="d-grid gap-2 mt-3">
-                  <button type="button" class="btn btn-primary fw-bold fs-5">Book Now</button>
+                  <button type="submit" class="btn btn-primary fw-bold fs-5">Book Now</button>
                 </div>
                 <p class="mt-4">Not sure? You can cancel this reservation up to 24 hours in advance for a full refund.</p>
               </div>
             </div>
 
+            @else
+            <h4 class="text-center fs-3 m-5 text-danger">place Login into your account and book your travel package</h4>
+            {{-- user not log into the web page show this form --}}
+            {{-- {{ view('auth.login') }}   --}}
           </div>
+          @endauth
+
         </div>
 
         <hr class="mb-5">
         
       </div>
 
+      {{-- for calculate booking total fee --}}
       <script>
          const perAdultFee = {{$travelPackage->per_adult_fee}};
          const perChildFee = {{$travelPackage->per_child_fee}};
