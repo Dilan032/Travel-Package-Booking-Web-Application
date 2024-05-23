@@ -13,19 +13,12 @@ class UserMassageController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-     // for admin showBlogs
-     public function showMasage(){
-        $user_massages = userMassage::orderBy('created_at','DESC')->get();
-        return view('admin.massage', compact('user_massages')); // Pass data to the view
-        
+        return view('user.contactUs');
     }
 
     //for user page contacUs
     public function contactUsShow(){
-        return view('user.contactUs');
+        // return view('user.contactUs');
         
     }
 
@@ -47,7 +40,7 @@ class UserMassageController extends Controller
                 'user_name' => 'required|string', 
                 'email' => 'required|email', 
                 'subject' => 'required|string', 
-                'description' => 'nullable|string', 
+                'discription' => 'nullable|string', 
             ];
     
             $validator = Validator::make($request->all(),  $rules);
@@ -64,11 +57,11 @@ class UserMassageController extends Controller
             $user_massages->user_name = $request->user_name;
             $user_massages->email = $request->email;
             $user_massages->subject = $request->subject;
-            $user_massages->description = $request->description;
+            $user_massages->discription = $request->discription;
             $user_massages->save();
             
             // Process the validated data, such as saving it to the database
-            return redirect()->route('contactUs')->with('success', 'Massage Send successfully');
+            return redirect()->route('contactUs')->with('success', 'Massage successfully Send');
             
         }
     }
@@ -78,7 +71,8 @@ class UserMassageController extends Controller
      */
     public function show(userMassage $userMassage)
     {
-        //
+        $user_massages = userMassage::orderBy('created_at','DESC')->get();
+        return view('admin.masage', compact('user_massages')); // Pass data to the view
     }
 
     /**
@@ -100,8 +94,11 @@ class UserMassageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(userMassage $userMassage)
+    public function destroy($id)
     {
-        //
+        $userMassage = userMassage::findOrFail($id);
+        $userMassage->delete();
+
+        return redirect()->route('admin.massage')->with('success', 'Massage Delete');
     }
 }

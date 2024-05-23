@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/Edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/profile/Edit/password', [ProfileController::class, 'editPassword'])->name('profile.profileChangePassword');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile/{}', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
@@ -86,10 +86,10 @@ Route::put('/package/page{TravelPackage}', [TravelPackageController::class, 'upd
 Route::delete('/package/page{TravelPackage}', [TravelPackageController::class, 'destroy'])->name('admin.deleteTravelPackage');
 
 
-//for admin massage
-Route::get('/admin/massage', [UserMassageController::class, 'showMasage'])->name('admin.massage');
 
 //for user massage
-// Route::view('/contactUs', 'user/contactUs')->name('contactUs');
-Route::get('/contactUs', [UserMassageController::class, 'contactUsShow'])->name('contactUs');
-Route::post('/contactUs', [UserMassageController::class, 'store'])->name('user.massage.store');
+Route::get('/contactUs', [UserMassageController::class, 'index'])->name('contactUs');
+Route::post('/contactUs', [UserMassageController::class, 'store'])->name('user.contactUs.store');
+//for admin massage
+Route::get('/admin/massage', [UserMassageController::class, 'show'])->name('admin.massage');
+Route::delete('/admin/massage/{userMassage}', [UserMassageController::class, 'destroy'])->name('admin.massage.delete');

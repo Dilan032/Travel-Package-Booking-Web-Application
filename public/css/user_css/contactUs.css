@@ -17,3 +17,22 @@
 ul{
     list-style-type: none; 
 }
+
+/* for aleart massage */
+.message-overlay{
+    position: relative;
+    z-index: 1;
+  
+}
+
+/* for admin css */
+.massage-box{
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    border-style: outset;
+    border-bottom-width: 2px;
+    width: 900px;
+    padding-bottom: 80px;
+    padding-top: 5px;
+}
+

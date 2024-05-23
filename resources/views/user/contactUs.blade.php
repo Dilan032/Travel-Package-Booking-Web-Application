@@ -4,23 +4,6 @@
 @section('content')
 
 
-      {{-- To display validation errors or success messages --}}
-      @if ($errors->any())
-      <div class="alert alert-danger">
-          <ul class="fw-medium">
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-              <li class="fw-light">try again</li>
-          </ul>
-      </div>
-      @endif
-
-      @if (session('success'))
-          <div class="alert alert-success">
-              {{ session('success') }}
-          </div>
-      @endif
 
     {{-- map --}}
     <div class="ms-2 map-position" style="margin-top: -25px;">
@@ -33,8 +16,29 @@
     {{-- Email contact form --}}
     <div class="d-flex justify-content-end pe-5" style="margin-right: 60px">
       <div class="contac-form p-3">
-        <form action="#" method="post">
+        <form action="{{route('user.contactUs.store')}}" method="post">
           @csrf
+
+          <div class="message-overlay">
+            {{-- To display validation errors or success messages --}}
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="fw-medium">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    <li class="fw-light">try again</li>
+                </ul>
+            </div>
+            @endif
+      
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+          </div>
+
             <div class="form-floating mb-3">
               <input type="text" name="user_name" class="form-control" id="floatingInput" placeholder="Full Name">
               <label for="floatingInput">Full Name</label>
@@ -48,7 +52,7 @@
               <label for="floatingInput">Subject</label>
             </div>
             <div class="form-floating">
-              <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+              <textarea class="form-control" name="discription" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
               <label for="floatingTextarea2">Your Massage</label>
             </div>
       
@@ -62,7 +66,7 @@
     
 
     {{-- details section --}}
-    <div class="mb-5" style="margin-top: 95px;">
+    <div style="margin-top: 95px; margin-bottom: 100px;">
       {{-- <h2 class="mt-5">Contac Us</h2> --}}
       <div class="d-flex justify-content-start gap-5">
         <ul>
