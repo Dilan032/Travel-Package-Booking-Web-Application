@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class booking extends Model
 {
@@ -13,7 +14,9 @@ class booking extends Model
     protected $table = 'bookings';
 
     protected $fillable = [
-        'travel_packages_id',
+        'package_name',
+        'user_id',
+        
         'date',
         'number_of_adult',
         'number_of_child',
@@ -21,10 +24,9 @@ class booking extends Model
         'total_fee',
     ];
 
-     // Define the relationship with the TourPackage model
-     public function travelPackages()
-     {
-         return $this->belongsTo(TravelPackage::class, 'package_name');
-     }
+
+    // public function user(): BelongsTo{
+    //     return $this->belongsTo(User::class);
+    // }
 
 }

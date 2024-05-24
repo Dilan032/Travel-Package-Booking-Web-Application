@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class BookingController extends Controller
@@ -21,9 +22,11 @@ class BookingController extends Controller
      */
     public function index()
     {
-        // $bookings = Booking::findOrFail($id);
-        $bookings = Booking::with('travelPackages')->orderBy('created_at', 'DESC')->get();
-        // $bookings = booking::orderBy('created_at','DESC')->get();
+        $userId = Auth::id(); // Retrieve logged-in user ID
+        $bookings = Booking::where('user_id', $userId)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+    
         return view('profile.booking', compact('bookings')); // Pass data to the view
         
     }
@@ -68,8 +71,13 @@ class BookingController extends Controller
         // 1. connect with the model
         $bookings = new booking();
 
+        $userId = Auth::id(); // Retrieve logged-in user ID
+
         //set the attribute
-        $bookings->travel_packages_id = $request->travel_packages_id;
+        $bookings->user_id = $userId;
+       
+        $bookings-> package_name = $request->package_name;
+
         $bookings->date = $request->date;
         $bookings->number_of_adult = $request->number_of_adult;
         $bookings->number_of_child = $request->number_of_child;

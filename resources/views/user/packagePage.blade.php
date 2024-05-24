@@ -172,9 +172,9 @@
           <div class="col-5">
             <div class="d-flex justify-content-end pe-5">
               <div class="bokking-form p-3">
-                <form action="{{route('user.booking.store', $travelPackage->id)}}" method="post">
+                <form action="{{route('user.booking.store')}}" method="post">
                   @csrf
-                  <input type="hidden" name="travel_packages_id" value="{{ $travelPackage->id}}">
+                  <input type="hidden" name="package_name" value="{{ $travelPackage->package_name}}">
                   {{-- select date --}}
                 <label for="Arrival_Date" class="fw-bold">Arrival Date</label>
                 <div class="form-floating mb-3">
@@ -202,21 +202,24 @@
                 </div>
 
                 {{-- aditional fees --}}
-                <div class="d-flex fw-bold mt-3 fs-5">
+                <div class="d-flex fw-bold mt-3 ">
                   <label for="service_fee" class="flex-grow-1 ms-2">Service fee: </label>
-                  <label for="fee" class="me-3">${{ $travelPackage->service_fee}}</label>
-                  
+                  <label for="fee" class="me-3">${{ $travelPackage->service_fee}}</label>                 
                 </div>
 
-                <div class="d-flex fw-bold fs-5">
+                <div class="d-flex fw-bold">
                   <label for="Booking_fee" class="flex-grow-1 ms-2">Booking fee: </label>
                   <label for="fee" class="me-3">${{ $travelPackage->booking_fee}}</label>
-                  
                 </div>
 
-                <div class="d-flex fw-bold fs-5 text-white bg-dark">
+                <div class="d-flex fw-bold">
+                  <label for="Booking_fee" class="flex-grow-1 ms-2">Price Start From: </label>
+                  <label for="fee" class="me-3">${{ $travelPackage->price_start_from}}</label>
+                </div>
+
+                <div class="d-flex fw-bold text-white bg-dark">
                   <label for="Total_fee" class="flex-grow-1 ms-2">Total fee: </label>
-                  <input type="number"  id="totalPrice" name="total_fee" value="0" readonly>
+                  <input type="number"  id="totalPrice" name="total_fee" value="0.00" readonly style="text-align: right;">
                 </div>                
           
                 {{-- search button --}}
@@ -242,6 +245,7 @@
 
       {{-- for calculate booking total fee --}}
       <script>
+         const startFee = {{ $travelPackage->price_start_from}};
          const perAdultFee = {{$travelPackage->per_adult_fee}};
          const perChildFee = {{$travelPackage->per_child_fee}};
          const service_fee = {{ $travelPackage->service_fee}};
@@ -250,8 +254,9 @@
         function updateTotalPrice() {
             const children = parseInt(document.getElementById('children').value) || 0;
             const adults = parseInt(document.getElementById('adults').value) || 0;
-            const totalPrice = service_fee + booking_fee + (children * perChildFee) + (adults * perAdultFee);
-            document.getElementById('totalPrice').value = totalPrice;
+            const totalPrice = startFee + service_fee + booking_fee + (children * perChildFee) + (adults * perAdultFee);
+            const formattedPrice = totalPrice.toFixed(2);
+            document.getElementById('totalPrice').value = formattedPrice;
         }
     </script>
       

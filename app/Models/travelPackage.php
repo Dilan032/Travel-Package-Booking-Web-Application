@@ -41,8 +41,8 @@ class travelPackage extends Model
     ];
 
      // Define the relationship with the Booking model
-     public function bookings()
-     {
-         return $this->hasMany(Booking::class, 'travel_packages_id');
-     }
+    //  public function bookings()
+    //  {
+    //      return $this->hasMany(Booking::class, 'travel_packages_id');
+    //  }
 }

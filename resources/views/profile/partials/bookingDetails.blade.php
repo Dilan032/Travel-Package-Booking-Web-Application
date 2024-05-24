@@ -1,6 +1,6 @@
 <table class="table table-bordered">
     <thead>
-        <tr>
+        <tr align="center">
           <th scope="col">Tour Name</th>
           <th scope="col">Travel Date</th>
           <th scope="col">Total</th>
@@ -14,14 +14,10 @@
         @foreach ($bookings as $booking)
         <tr>
             <td>
-              @if ($booking->travelPackage)
-                    {{ $booking->travelPackage->package_name }}
-                @else
-                    Not Available
-                @endif
+                    {{ $booking->package_name }}
             </td>
             <td>{{ \Carbon\Carbon::parse($booking->travel_date)->format('Y-m-d') }}</td>
-            <td>{{ $booking->total_fee }}</td>
+            <td align="right">${{ $booking->total_fee }}</td>
             <td>{{ $booking->payment_type }}</td>
             <td>{{ $booking->payment_status }}</td>
             <td>

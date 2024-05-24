@@ -20,18 +20,18 @@
                 Change Password
             </div>
         </a>
-        <a class="{{ request()->is('profile') ? 'active' : '' }}" href="{{ route('profile.Booking') }}">
+        {{-- <a class="{{ request()->is('profile') ? 'active' : '' }}" href="#">
             <div class="p-2 g-col-6 mouse-hand menu-item" >
                 <img src="{{ asset('image/help-tools/delete.png') }}" class="dashbord-icon" alt="dashbord-icon">
                 Delete Account
             </div>
-        </a>
+        </a> --}}
     </div>
     
     <br>
     <h4 class="mt-4">Tour Booking</h4>
     <div class="grid gap-3">
-        <a class="{{ request()->is('profile') ? 'active' : '' }}" href="{{ route('profile.destroy') }}">
+        <a class="{{ request()->is('profile/Booking') ? 'active' : '' }}" href="{{ route('profile.Booking') }}">
             <div class="p-2 g-col-6 mouse-hand menu-item">
                 <img src="{{ asset('image/help-tools/booking.png') }}" class="dashbord-icon" alt="dashbord-icon">
                 My Booking
