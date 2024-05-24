@@ -29,7 +29,7 @@
             <thead>
             <tr class="table-dark">
                 <th scope="col">No</th>  
-                <th scope="col" style="text-align: center; width: 100%;">Subject</th> 
+                <th scope="col" style="text-align: center; width: 100%;">Massage</th> 
                 <th scope="col" style="text-align: right;">Action</th>             
             </tr>
             </thead>
@@ -48,26 +48,27 @@
                             </button>                            
                         </h2>
                         <div id="flush-collapse{{ $key }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ $key }}" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li class="fw-medium">{{ $massage->user_name }}</li>
-                                    <li class="fw-light">{{ $massage->email }}</li>
-                                    <li class="fw-medium"><pre>{{ \Carbon\Carbon::parse($massage->created_at)->format('d M,Y | h:i A') }}</pre></li>
-                                    <li class="fw-medium">Massage : </li>
-                                    <div class="massage-box mt-1 p-4">
-                                        <li><q>{{ $massage->discription }}</q></li>
-                                    </div>
-                                    <li class="mt-4">
-                                        <a href="mailto:{{$massage->email}}" type="button" class="btn btn-success btn-sm">Send Email</a>
-                                        {{-- button for delete the blog post --}}
-                                        <a href="#" onclick="deleteUserMassage({{ $massage->id}});" class="btn btn-danger btn-sm">Delete</a>
-                                        <form id="massage-id-{{ $massage->id }}" action="{{route('admin.massage.delete', $massage->id)}}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                        </form>
-                                    </li>
-                                </ul>
-                                   
+                            <div class="accordion-body ">
+                                <div class="massage-box-main">
+                                    <ul>
+                                        <li class="fw-medium">{{ $massage->user_name }}</li>
+                                        <li class="fw-light">{{ $massage->email }}</li>
+                                        <li class="fw-medium"><pre>{{ \Carbon\Carbon::parse($massage->created_at)->format('d M,Y | h:i A') }}</pre></li>
+                                        <li class="fw-medium">Massage : </li>
+                                        <div class="massage-box mt-1 p-4">
+                                            <li><strong><q>{{ $massage->discription }}</q></strong></li>
+                                        </div>
+                                        <li class="mt-4">
+                                            <a href="mailto:{{$massage->email}}" type="button" class="btn btn-success btn-sm">Send Email</a>
+                                            {{-- button for delete the blog post --}}
+                                            <a href="#" onclick="deleteUserMassage({{ $massage->id}});" class="btn btn-danger btn-sm">Delete</a>
+                                            <form id="massage-id-{{ $massage->id }}" action="{{route('admin.massage.delete', $massage->id)}}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <br>
                         </div>
