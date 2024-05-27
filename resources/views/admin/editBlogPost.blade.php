@@ -27,42 +27,48 @@
         </div>
     @endif
 
-    <div class="container edit-post-bg">         
+    <div class="container ">         
         <form action="{{route('admin.updateBlog', $blog->id)}}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="mb-3">              
-               <div class="row mb-5">
-                    <div class="col">                  
+               <div class="row mb-4">
+                    <div class="col ">                  
                         {{-- image --}}
                         @if ($blog-> image != "")
-                            <img src="{{ asset('image/uploads/blog/'.$blog-> image) }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
+                            <img src="{{ asset('image/uploads/blog/'.$blog-> image) }}" alt="Blog Post Image" class="object-fit-contain img-fluid bg-for-list">
                         @else
-                            <img src="{{ asset('image/uploads/blog/empty-image.png') }}" alt="Blog Post Image" class="object-fit-contain img-fluid">
+                            <img src="{{ asset('image/uploads/blog/empty-image.png') }}" alt="Blog Post Image" class="object-fit-contain img-fluid bg-for-list">
                         @endif
                     </div>
                     <div class="col-8">
-                        <br><br><br><br><br><br><br><br>
-                        <label for="recipient-name" class="col-form-label fw-semibold">Image</label>
-                        <input type="file" name="blogImage" class="form-control" id="recipient-name">
+                        <br><br><br><br><br>
+                        <div class="bg-for-list">
+                            <label for="recipient-name" class="col-form-label fw-semibold">Image</label>
+                            <input type="file" name="blogImage" class="form-control" id="recipient-name">
+                        </div>
                     </div>
                </div>
             </div>
-            {{-- blog title --}}
-            <div class="mb-3">
-                <label for="recipient-name" class="col-form-label fw-semibold">Title</label>
-                <input type="text" name="blogTitle" value="{{old('blogTitle',$blog->title)}}" class="form-control" id="recipient-name">
-            </div>
-            {{-- blog Description --}}
-            <div class="mb-3">
-                <label for="message-text" class="col-form-label fw-semibold">Description</label>
-                <textarea name="description"  class="form-control" id="blogDescription" rows="10"> {{old('description',$blog->discription)}} </textarea>
-            </div>
             
-            <div class="modal-footer mb-5">
-                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+            <div class="bg-for-list">
+                {{-- blog title --}}
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label fw-semibold">Title</label>
+                    <input type="text" name="blogTitle" value="{{old('blogTitle',$blog->title)}}" class="form-control" id="recipient-name">
+                </div>
+                {{-- blog Description --}}
+                <div class="mb-4">
+                    <label for="message-text" class="col-form-label fw-semibold">Description</label>
+                    <textarea name="description"  class="form-control" id="blogDescription" rows="10"> {{old('description',$blog->discription)}} </textarea>
+                </div>
+                <p class="text-info">Enter <code> Windows + . </code> to add icons</p>
+            </div>
+            <div class="modal-footer mt-4">
+                <a href="{{route('admin.addBlog')}}" type="button" class="btn btn-secondary me-2">Cancel</a>
                 <button type="submit" class="btn btn-primary">Update Post</button>
             </div>
+            <br><br>
         </form>
     </div>
  </main>   

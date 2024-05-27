@@ -1,8 +1,9 @@
 .blog-post-container {
     padding: 10px; 
     margin-bottom: 15px; 
-    height: 450px; 
+    height: 400px; 
     border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     
   }
 

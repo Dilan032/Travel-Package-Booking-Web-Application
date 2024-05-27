@@ -2,7 +2,30 @@
     padding: 10px; 
     margin-bottom: 15px; 
     height: 500px; 
-    width: 250px;
+    width: 270px;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     
   }
+
+  .bg-for-list{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    width: 100%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
+  }
+
+  .bg-for-price{
+    background-color: rgb(255, 255, 255);
+    margin-left: 2px;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    width: 50%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
+  }
+  

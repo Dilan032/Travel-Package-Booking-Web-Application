@@ -51,6 +51,18 @@ class BlogController extends Controller
             return redirect()->route('admin.addBlog')->withErrors($validator)->withInput();
         }
 
+        // for ck edotor
+        // if($request->hasFile('upload')){
+        //     $originName = $request->file('upload')->getClientOriginalName();
+        //     $fileName = pathinfo($originName, PATHINFO_FILENAME);
+        //     $extention = $request->file('upload')->getClientOriginalExtension();
+        //     $fileName = $fileName . '_'. time() . '.' . $extention;
+
+        //     $request->file('upload')->move(public_path('image/uploads/blog'),$fileName);
+        //     $url = asset('image/uploads/blog/'. $fileName);
+        //     return response()->json(['fileName' => $fileName,'uploaded'=>1, 'url' => $url]);
+        // }
+
         //to store data code here
         // 1. connect with the model
         $blog = new Blog();

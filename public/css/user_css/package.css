@@ -27,16 +27,40 @@
 }
 
 .bokking-form{
-    width: 400px;
-    /* height: 600px; */
-    background-color: rgba(255, 255, 255, 0.896);
+    width: 80%;
+    background-color: rgb(255, 255, 255);
     border-radius: 6px;
     border-color: black;
     border-width: 1px;
     border-style: outset;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .fee-position{
     margin-left: 200px;
 }
 
+.bg-for-user-list{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    width: 100%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
+  }
+
+  .bg-for-user-tourPlane{
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    padding-bottom: 30px;
+    border-radius: 2px;
+    width: 100%;
+    box-shadow: 5px 5px 50px #b9b9b9;
+  }
+
+  .bg-for-btn{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  

@@ -1,18 +1,25 @@
 .user-side-menu-bg{
-    background-color: rgba(104, 137, 255, 0.121);
+    background-color:  #0D2857;
+    color: white;
     border-width: 1px;
     height: 650px;
     width: 300px;
     margin-top: -50px;
     border-width: 1px;
     border-style: ridge;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.list-color{
+    color: white;
 }
 
 .active .menu-item {
     font-weight: bold;
     border-bottom: 2px outset rgba(0, 0, 0, 0.511); 
-    background-color: rgba(255, 255, 255, 0.267);
+    background-color: rgb(255, 255, 255);
     border-radius: 6px;
+    color: black;
 }
 
 .highlighted {
@@ -41,10 +48,18 @@
     height: 550px;
     width: 1100px;
     margin-bottom: 50px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     
 }
 
 .dashbord-icon{
     height: 35px;
     padding: 5px;
+}
+
+.NeedHelp-css-sideMenu{
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.566);
+    background-color: white;
+    border-radius: 10px;
+    color: black;
 }

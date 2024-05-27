@@ -13,7 +13,7 @@ class BookingController extends Controller
     public function showLoginView()
     {
         
-        return view('auth.login'); 
+        return view ('auth.login'); 
         
     }
 
@@ -23,9 +23,11 @@ class BookingController extends Controller
     public function index()
     {
         $userId = Auth::id(); // Retrieve logged-in user ID
-        $bookings = Booking::where('user_id', $userId)
-            ->orderBy('created_at', 'DESC')
-            ->get();
+
+        $bookings = Booking::withUserAndPackage()
+                ->where('user_id', $userId)
+                ->orderBy('created_at', 'DESC')
+                ->get();
     
         return view('profile.booking', compact('bookings')); // Pass data to the view
         
@@ -56,6 +58,10 @@ class BookingController extends Controller
             'date' => 'required|date',
             'number_of_adult' => 'required|integer',
             'number_of_child' => 'required|integer',
+            'pick_up_location' => 'required|string',
+            'pick_up_location_details' => 'required|string',
+            'accommodation_type' => 'required|string',
+            'transport_method' => 'required|string',
             'aditional_requarement' => 'nullable|string',
             'total_fee' => 'required|numeric',
 
@@ -74,13 +80,18 @@ class BookingController extends Controller
         $userId = Auth::id(); // Retrieve logged-in user ID
 
         //set the attribute
+
+        //foring keys
         $bookings->user_id = $userId;
-       
-        $bookings-> package_name = $request->package_name;
+        $bookings-> package_id = $request->package_id;
 
         $bookings->date = $request->date;
         $bookings->number_of_adult = $request->number_of_adult;
         $bookings->number_of_child = $request->number_of_child;
+        $bookings->pick_up_location = $request->pick_up_location;
+        $bookings->pick_up_location_details = $request->pick_up_location_details;
+        $bookings->accommodation_type = $request->accommodation_type;
+        $bookings->transport_method = $request->transport_method;
         $bookings->aditional_requarement = $request->aditional_requarement;
         $bookings->total_fee = $request->total_fee;
         $bookings->save();

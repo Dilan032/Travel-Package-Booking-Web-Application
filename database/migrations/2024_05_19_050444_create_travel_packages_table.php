@@ -23,7 +23,7 @@ return new class extends Migration
             $table->decimal('price_start_from', 10,2);
             $table->longText('overview');
             $table->longText('included_things');
-            // $table->Text('tour_plane_title');
+            $table->longText('Excludes_things');
             $table->longText('tour_plane_description');
             $table->decimal('per_adult_fee', 10,2)->default(200.00);
             $table->decimal('per_child_fee', 10,2)->default(100.00);

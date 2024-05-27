@@ -15,7 +15,7 @@
               </div>
 
               <hr> 
-              <div style="height: 150px;">
+              <div style="height: 100px;">
                 <h5><a href="#">  {{ $blogPost->title}}  </a></h5>
                 <p>  {{ \carbon\carbon::parse($blogPost->created_at)->format('d M, Y') }} </p>
               </div>
