@@ -4,7 +4,7 @@
       @foreach ( $travelPackage as $package)  
         <div class="col-md-3 p-4">
           <div class="travelPackage-bg-container post-bg travelPackage-bg">    
-            <div style="height: 220px;">
+            <div style="height: 200px;">
                 {{-- image --}}
                 @if ($package-> image_1 != "")
                 <img src="{{ asset('image/uploads/travelPackage/'.$package-> image_1) }}" alt="package Image" class="object-fit-contain img-fluid">

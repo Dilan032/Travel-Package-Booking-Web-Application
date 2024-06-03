@@ -28,9 +28,9 @@
         <table class="table">
             <thead>
             <tr class="table-dark">
-                <th scope="col">No</th>  
-                <th scope="col" style="text-align: center; width: 100%;">Massage</th> 
-                <th scope="col" style="text-align: right;">Action</th>             
+                <th scope="col">No &nbsp;&nbsp;&nbsp;&nbsp;  Massage</th>  
+                <th scope="col" style="width: 50%;"> </th>  
+                <th></th><th></th>         
             </tr>
             </thead>
         </table>
@@ -41,11 +41,12 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-heading{{ $key }}">
                             <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ $key }}" aria-expanded="false" aria-controls="flush-collapse{{ $key }}">
-                                <div class="fs-6 fw-medium w-100 d-flex justify-content-between">
-                                    <span><b>{{ $massage->id }}.</b></span>
-                                    <span class="mx-auto">{{ $massage->subject }}</span>
+                                <div class="w-100 d-flex justify-content-between align-items-center">
+                                    <span class="me-3 fw-bold">{{ $massage->id }}.</span>
+                                    <span class="flex-grow-1 text-start fw-bold">{{ $massage->subject }}</span>
+                                    <span class="me-5">{{ \Carbon\Carbon::parse($massage->created_at)->format('d M,Y | h:i A') }}</span>
                                 </div>
-                            </button>                            
+                            </button>                       
                         </h2>
                         <div id="flush-collapse{{ $key }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ $key }}" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body ">

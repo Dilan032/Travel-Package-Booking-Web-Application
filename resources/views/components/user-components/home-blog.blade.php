@@ -6,7 +6,7 @@
           <a href="{{route('blog.page', $blogPost->id)}}">  
 
             <div class="blog-post-container post-bg">
-              <div style="height: 200px;">
+              <div style="height: 180px;">
                 {{-- image --}}
               @if ($blogPost-> image != "")
                 <img src="{{ asset('image/uploads/blog/'.$blogPost-> image) }}" alt="Blog Post Image" class="object-fit-contain img-fluid">

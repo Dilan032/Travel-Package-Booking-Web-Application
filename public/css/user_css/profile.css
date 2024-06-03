@@ -58,8 +58,27 @@
 }
 
 .NeedHelp-css-sideMenu{
-    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.566);
-    background-color: white;
     border-radius: 10px;
-    color: black;
+    border-style: outset;
+    border-width: 1px;
+    border-color: aliceblue;
+    color: rgb(255, 255, 255);
+}
+
+/* invoice page profile */
+.profile-invoice-detail-bg{
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+.profile-invoice{
+    border-style: inset;
+}
+.payment-bg{
+    border-style: dashed;
+    padding: 30px;
+    margin-top: 1px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 }

@@ -8,6 +8,7 @@
     border-color: black;
     border-width: 1px;
     border-style: outset;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .map-position{

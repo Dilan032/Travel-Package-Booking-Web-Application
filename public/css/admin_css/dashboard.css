@@ -1,5 +1,6 @@
 #sidebarMenu{
     height: 1200px;
+     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .SideMenuPosition{
@@ -21,7 +22,7 @@
     font-weight: bolder;
     /* border-bottom: 1px outset rgba(245, 245, 245, 0.511);  */
     border-left: 6px outset rgba(0, 0, 0, 0.511);
-    background-color: rgba(90, 103, 245, 0.095);
+    background-color: rgba(90, 103, 245, 0.319);
     border-radius: 4px;
     color: blue;
 }

@@ -13,8 +13,9 @@
 .blog-post-container {
     padding: 10px; 
     margin-bottom: 15px; 
-    height: 400px; 
+    height: 350px; 
     border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     
   }
 

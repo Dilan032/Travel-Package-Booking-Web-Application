@@ -1,0 +1,59 @@
+.Booking-detail-bg-first-3{
+    /* background-color: white; */
+    width: 250px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px rgba(39, 32, 133, 0.2);
+}
+.Booking-detail-bg-first-3:hover{
+    font-weight: bold;
+}
+
+.Booking-detail-bg-second-2{
+    background-color: white;
+    width: 565px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
+}
+.Booking-detail-bg-second-2:hover{
+    font-weight: bold;
+}
+
+.three-D-bg{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* booking details page (invoice css) */
+.invoice-bg{
+    background-color: white;
+    padding: 20px;
+    border-style: inset;
+}
+
+/* admin booking details page css */
+.all-summery-section-bg{
+    background-color: white;
+    width: 400px;
+    padding: 10px;
+    margin-left: 80px;
+    margin-top: 100px;
+    position: relative;
+    border-style: outset;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.payment-check-section-bg{
+    background-color: white;
+    width: 400px;
+    padding: 10px;
+    margin-left: 80px;
+    position: relative;
+    margin-top: 10px;
+    border-style:inherit;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}

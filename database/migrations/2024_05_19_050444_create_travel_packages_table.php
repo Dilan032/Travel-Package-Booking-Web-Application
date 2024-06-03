@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image_2')->nullable();
             $table->string('image_3')->nullable();
             $table->string('duration');
-            $table->string('duration_type');
+           
             $table->string('tour_type');
             $table->decimal('price_start_from', 10,2);
             $table->longText('overview');
@@ -27,8 +27,6 @@ return new class extends Migration
             $table->longText('tour_plane_description');
             $table->decimal('per_adult_fee', 10,2)->default(200.00);
             $table->decimal('per_child_fee', 10,2)->default(100.00);
-            $table->decimal('service_fee', 10,2)->default(100.00);
-            $table->decimal('booking_fee', 10,2)->default(50.00);
             $table->timestamps();
         });
     }

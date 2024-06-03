@@ -20,17 +20,27 @@ Route::view('/login', 'auth.login')->name('loginPage');
 Route::view('/admin/dashboard', 'admin.adminHome')->name('admin.home');
 Route::view('/admin/setting', 'admin.setting')->name('admin.setting');
 Route::view('/admin/manageUsers', 'admin.manageUsers')->name('admin.manageUsers');
-Route::view('/admin/booking', 'admin.bookingDetails')->name('admin.booking');
+// Route::view('/admin/booking', 'admin.bookingDetails')->name('admin.booking'); 
 Route::view('/admin/massage', 'admin.masage')->name('admin.massage');
 Route::view('/admin/review', 'admin.review')->name('admin.review');
 Route::view('/admin/addBlog', 'admin.addBlog')->name('admin.addBlog');
 
 
-Route::middleware('auth')->group(function () {
 // for user profile
-Route::get('/profile/Booking', [BookingController::class, 'index'])->name('profile.Booking');
-Route::get('/profile/invoice', [BookingController::class, 'indexInvoice'])->name('profile.Invoice');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/Booking', [BookingController::class, 'index'])->name('profile.Booking');
+    Route::get('/profile/invoice', [BookingController::class, 'indexInvoice'])->name('profile.Invoice');
+    Route::get('/profile/invoice/{id}', [BookingController::class, 'invoiceDetails'])->name('profile.showInvoiceDetails');
+    Route::post('/profile/invoice/{id}', [BookingController::class, 'paymentReceiptImage'])->name('user.payment.receipt.image');
+    Route::post('/profile/invoice/{id}/payment-receipt', [BookingController::class, 'paymentReceiptImage'])->name('user.payment.receipt.image');
+
 });
+
+//payment Receipt Image Acccept
+Route::post('/profile/invoice/{id}', [BookingController::class, 'paymentReceiptImageAcccept'])->name('admin.payment.receipt.image.Acccept');
+//payment Receipt Image Reject
+Route::post('/profile/invoice/a/{id}', [BookingController::class, 'paymentReceiptImageReject'])->name('admin.payment.receipt.image.Reject');
+
 
 // show login
 Route::get('/login', [BookingController::class, 'showLoginView'])->name('loginPage');
@@ -40,6 +50,10 @@ Route::get('/login', [BookingController::class, 'showLoginView'])->name('loginPa
 //for user booking
 Route::post('/package', [BookingController::class, 'store'])->name('user.booking.store');
 // Route::get('/blog', [BlogController::class, 'show'])->name('profile.Booking');
+
+//for admin booking details
+Route::get('/admin/Booking', [BookingController::class, 'showAllBookingData'])->name('admin.booking');
+Route::get('/admin/Booking/{id}', [BookingController::class, 'showOneUserBookingDataAll'])->name('admin.showOneUserBookingDataAll');
 
 
 

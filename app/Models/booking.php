@@ -22,10 +22,11 @@ class booking extends Model
         'number_of_child',
         'pick_up_location',
         'pick_up_location_details',
-        'accommodation_type',
-        'transport_method',
-        'aditional_requarement',
         'total_fee',
+        'Reservation Status',
+        'Invoice Status',
+        'Payment Status',
+        'payment_receipt',
     ];
 
 

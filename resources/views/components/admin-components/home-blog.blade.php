@@ -5,7 +5,7 @@
           <div class="col-md-3 p-4">
             <div class="blog-post-container post-bg">
               
-              <div style="height: 200px;">
+              <div style="height: 160px;">
               {{-- image --}}
               @if ($blogPost-> image != "")
                 <img src="{{ asset('image/uploads/blog/'.$blogPost-> image) }}" alt="Blog Post Image" class="object-fit-contain img-fluid imageHoverEffect">

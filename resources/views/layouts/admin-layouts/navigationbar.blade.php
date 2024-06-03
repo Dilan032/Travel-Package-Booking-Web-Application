@@ -31,7 +31,7 @@
                     <hr class="border border-2 opacity-100">
 
                     <li class="nav-item list-bg ">
-                        <a class="nav-link font-style {{ request()->is('admin/booking') ? 'active' : '' }}" href="{{route('admin.booking')}}">
+                        <a class="nav-link font-style {{ request()->is('admin/Booking') ? 'active' : '' }}" href="{{route('admin.booking')}}">
                             <img src="{{ asset('image/help-tools/booking.png') }}" class="dashbord-icon" alt="dashbord-icon">   
                             Bookings
                         </a>

@@ -32,12 +32,54 @@ class BookingController extends Controller
         return view('profile.booking', compact('bookings')); // Pass data to the view
         
     }
+
+    // this function show details for admin
+    public function showAllBookingData()
+    {  
+        $userId = Auth::id(); // Retrieve logged-in user ID
+        $bookings = Booking::withUserAndPackage()
+                ->orderBy('created_at', 'DESC')
+                ->get();
+    
+        return view('admin.bookingDetails', compact('bookings')); // Pass data to the view
+
+    }
+
+    // for Admin
+    public function showOneUserBookingDataAll($id)
+    {
+        $bookings = Booking::withUserAndPackage(['user', 'package'])
+                ->where('id', $id)
+                ->orderBy('created_at', 'DESC')
+                ->get();
+                // dd($bookings); // Dump the bookings to check data //this is used for data correckly pass to the view
+        return view('admin.adminBookingDetailsPage', compact('bookings')); // Pass data to the view    
+    }
+
         /**
      * Display a invoice massage.
      */
     public function indexInvoice()
     {
-        return view('profile.invoice');
+        $userId = Auth::id(); // Retrieve logged-in user ID
+        $bookings = Booking::withUserAndPackage()
+                ->where('user_id', $userId)
+                ->orderBy('created_at', 'DESC')
+                ->get();
+    
+        return view('profile.invoice', compact('bookings')); // Pass data to the view
+    }
+
+    //show user invoice details
+    public function invoiceDetails($id)
+    {
+        $booking = Booking::withUserAndPackage(['user', 'package'])
+                ->where('id', $id)
+                ->orderBy('created_at', 'DESC')
+                ->first();
+
+                // dd($bookings); // Dump the bookings to check data //this is used for data correckly pass to the view
+        return view('profile.profileInvoiceDetails', compact('booking')); // Pass data to the view    
     }
 
     /**
@@ -53,18 +95,13 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $rules =[
-           
+        $rules =[     
             'date' => 'required|date',
             'number_of_adult' => 'required|integer',
             'number_of_child' => 'required|integer',
             'pick_up_location' => 'required|string',
             'pick_up_location_details' => 'required|string',
-            'accommodation_type' => 'required|string',
-            'transport_method' => 'required|string',
-            'aditional_requarement' => 'nullable|string',
             'total_fee' => 'required|numeric',
-
         ];
 
         $validator = Validator::make($request->all(),  $rules);
@@ -90,9 +127,6 @@ class BookingController extends Controller
         $bookings->number_of_child = $request->number_of_child;
         $bookings->pick_up_location = $request->pick_up_location;
         $bookings->pick_up_location_details = $request->pick_up_location_details;
-        $bookings->accommodation_type = $request->accommodation_type;
-        $bookings->transport_method = $request->transport_method;
-        $bookings->aditional_requarement = $request->aditional_requarement;
         $bookings->total_fee = $request->total_fee;
         $bookings->save();
         
@@ -101,13 +135,81 @@ class BookingController extends Controller
         
     }
 
+    //user payment_receipt upload
+    public function paymentReceiptImage(Request $request, $id)
+    {
+        $rules =[
+            'payment_receipt' => 'nullable|image|mimes:jpeg,svg,png,jpg,webp|max:10240', // Ensure image file, max 10MB
+        ];
+
+        $validator = Validator::make($request->all(),  $rules);
+        //to show massages | check validate
+        if ($validator->fails()) {
+            return redirect()->route('profile.profileInvoiceDetails', ['id' => $id])->withErrors($validator)->withInput();
+        }
+        
+          // Find the existing booking record
+        $booking = Booking::find($id);
+
+        $booking->payment_status = 'Success';
+        $booking->save();
+
+        //set the attribute for images
+        if ($request->hasFile('payment_receipt')) {
+            $payment_receipt = $request->file('payment_receipt');
+            $ext = $payment_receipt->getClientOriginalExtension();
+            $imageName = time() . '.' . $ext;
+            $payment_receipt->move(public_path('image/uploads/payment-recipt'), $imageName);
+            $booking->payment_receipt = $imageName;
+            $booking->save();
+        }
+      
+
+        // Process the validated data, such as saving it to the database
+        return redirect()->route('profile.showInvoiceDetails', ['id' => $id])->with('success', 'Payment has been made successfully');
+        
+    }
+
+        //user payment_receipt accept and conform booking for admin function
+        public function paymentReceiptImageAcccept(Request $request, $id)
+        {
+            
+              // Find the existing booking record
+            $booking = Booking::find($id);
+            $booking->payment_status = 'Success';
+            $booking->reservation_status = 'Conform';
+            $booking->save();
+
+            // Process the validated data, such as saving it to the database
+            return redirect()->route('admin.showOneUserBookingDataAll', ['id' => $id])->with('success', 'Booking confirmed');
+            
+        }
+
+        //user payment_receipt reject and reject booking for admin function
+        public function paymentReceiptImageReject(Request $request, $id)
+        {
+            
+              // Find the existing booking record
+            $booking = Booking::find($id);
+            $booking->payment_status = 'Reject';
+            $booking->reservation_status = 'Reject';
+            $booking->save();
+
+            // Process the validated data, such as saving it to the database
+            return redirect()->route('admin.showOneUserBookingDataAll', ['id' => $id])->with('success', 'Booking Rejected');
+            
+        }
+
+        
+
+
+
     /**
      * Display the specified resource.
      */
     public function show(booking $booking)
     {
-        // $bookings = booking::orderBy('created_at','DESC')->get();
-        // return view('profile.booking', compact('bookings')); // Pass data to the view
+        //
     }
 
     /**

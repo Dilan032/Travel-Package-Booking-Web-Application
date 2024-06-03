@@ -5,8 +5,8 @@
         <div class="col-md-4 p-4">
           <a href="{{route('user.packagePage', $package->id)}}">  
 
-            <div class="travelPackage-bg-container post-bg travelPackage-bg">    
-              <div style="height: 220px;">
+            <div class="travelPackage-bg post-bg travelPackage-bg">    
+              <div style="height: 180px;">
                   {{-- image --}}
                   @if ($package-> image_1 != "")
                   <img src="{{ asset('image/uploads/travelPackage/'.$package-> image_1) }}" alt="package Image" class="object-fit-contain img-fluid">
@@ -15,17 +15,20 @@
                   @endif
               </div>
               <hr> 
-              <div style="height: 150px;">
-                <div class="text-black bg-white p-2" style="height: 230px; border-radius: 10px;">
-                  <p><b>{{ $package->duration }} {{ $package->duration_type }}</b></p>
-                  <span class="badge text-bg-secondary mb-3"> {{ $package->tour_type }} </span>
+              
+                <div class="text-black bg-white p-2" style="height: 210px; border-radius: 10px;">
+                  <div class="fs-5">
+                    <span class="badge text-bg-secondary "> {{ $package->tour_type }} </span>
+                  </div>
                   
-                  <h5> {{ $package->package_name }}</h5>
-                  <h5> 
-                      <span class="badge text-bg-warning"> From: ${{ $package->price_start_from }} </span>
-                  </h5>
+                  <div class="mt-2">
+                    <h5 class="mb-4"> {{ $package->package_name }}</h5>
+                    <span class="badge text-bg-light p-2 mb-2 fs-6"><b>{{ $package->duration }} Days </b></span>
+                    <h5> 
+                      <span class="badge text-bg-warning fs-5"> From: ${{ $package->price_start_from }} </span>
+                    </h5>
+                  </div>
                 </div>
-              </div>
               
             </div>
           </a>

@@ -90,15 +90,7 @@
               <img src="{{ asset('image/help-tools/clock.svg') }}" alt="clock icon">
               <h5 class="fw-bold">Duration:</h5>
             </div>
-            <p class="text-primary fs-5 fw-bold ms-4"> {{ $travelPackage->duration}} {{ $travelPackage->duration_type}} </p>
-          </div>
-
-          <div>
-            <div class="d-flex gap-2 flex-row">
-              <img src="{{ asset('image/help-tools/group.svg') }}" alt="Group icon">
-              <h5 class="fw-bold">Tour Type:</h5>
-            </div>
-              <p class="text-primary fs-5 fw-bold ms-4"> {{ $travelPackage->package_type}} </p>
+            <p class="text-primary fs-5 fw-bold ms-4"> {{ $travelPackage->duration}} Days </p>
           </div>
 
           <div>
@@ -121,7 +113,7 @@
         {{-- Overview section --}}
         <h3 class="mt-5 fw-bold bg-for-user-list">Overview</h3>
         <p class="my-4">
-          {{ $travelPackage->overview}}
+          {{ $travelPackage->overview }}
         </p>
 
         <br>
@@ -131,10 +123,10 @@
             <h3 class="mb-4 fw-bold bg-for-user-list">Price Includes</h3>
               {!! $travelPackage->included_things !!}
           </div>
-          <div class="col-md-4 text-start"> 
+          {{-- <div class="col-md-4 text-start"> 
             <h3 class="mb-4 fw-bold bg-for-user-list">Price Excludes</h3>
             {!! $travelPackage->Excludes_things !!}
-          </div>
+          </div> --}}
         </div>
 
         {{-- show important massage --}}
@@ -204,6 +196,15 @@
 
         <hr class="mb-5">
 
+        @auth
+
+          @else
+          <div class="alert alert-danger text-center" role="alert">
+            Please login to your account before booking your travel package
+          </div>
+        @endauth
+
+
         {{-- Booking Form --}}
         <div class="d-flex justify-content-center">
           <div class="bokking-form p-3">
@@ -226,7 +227,7 @@
                   <label for="adult" class="fw-bold">Adult</label>
                   <div class="form-floating mb-3">
                     <input type="number" id="adults" name="number_of_adult" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Adult" required>
-                    <label for="floatingInput">(Age 18+) ${{ $travelPackage->per_adult_fee}} per person</label>
+                    <label for="floatingInput">( Age 18+ ) ${{ $travelPackage->per_adult_fee}} per person</label>
                   </div>
               
 
@@ -234,135 +235,47 @@
                 <label for="Child" class="fw-bold">Child</label>
                 <div class="form-floating mb-3">
                   <input type="number" id="children" name="number_of_child" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Child" required>
-                  <label for="floatingInput">(Age 6-17)  ${{ $travelPackage->per_child_fee}} per person</label>
+                  <label for="floatingInput">( Age 6 - 12 )  ${{ $travelPackage->per_child_fee}} per person</label>
                 </div>
 
-                  {{-- Additional requests massge --}}
-                  <label for="Additional_requests" class="fw-bold mt-3">Where do you meet to start the tour?</label>
-                  <div class="col-md-6 mt-2">
-                    <select id="inputState" class="form-select" name="pick_up_location">
-                      <option selected>From Hotel</option>
-                      <option>From Airport</option>
-                    </select>
+                  
+
+                  {{-- price --}}
+                  <div class="d-flex fw-bold fs-5 mb-2">
+                    <label for="Booking_fee" class="flex-grow-1 ms-2">Price Start From: ($) </label>
+                    <label for="fee" class="me-3"> {{ $travelPackage->price_start_from}}</label>
                   </div>
 
-                  <div class="form-floating mt-3">
-                    <textarea class="form-control" name="pick_up_location_details" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 120px;"></textarea>
-                    <label for="floatingTextarea2">Hotel or Airport Details.</label>
-                  </div>
-
-                  {{-- aditional fees --}}
-                  <div class="d-flex fw-bold mt-3 ">
-                    <label for="service_fee" class="flex-grow-1 ms-2">Service fee: </label>
-                    <label for="fee" class="me-3">${{ $travelPackage->service_fee}}</label>                 
-                  </div>
-
-                  <div class="d-flex fw-bold">
-                    <label for="Booking_fee" class="flex-grow-1 ms-2">Booking fee: </label>
-                    <label for="fee" class="me-3">${{ $travelPackage->booking_fee}}</label>
-                  </div>
-
-                  <div class="d-flex fw-bold">
-                    <label for="Booking_fee" class="flex-grow-1 ms-2">Price Start From: </label>
-                    <label for="fee" class="me-3">${{ $travelPackage->price_start_from}}</label>
-                  </div>
-
-                  <div class="d-flex fw-bold text-white bg-dark">
-                    <label for="Total_fee" class="flex-grow-1 ms-2">Total fee: </label>
-                    <input type="number"  id="totalPrice" name="total_fee" value="0.00" readonly style="text-align: right;">
+                  <div class="d-flex fw-bold text-white bg-dark fs-5">
+                    <label for="Total_fee" class="flex-grow-1 ms-2">Total fee: ($)</label>
+                    <input type="number" id="totalPrice" name="total_fee" value="0.00" readonly style="text-align: right; height:50px;">
                   </div> 
+
                 </div>
               
             </div>
             <div class="col-6">
-                <div class="p-3 mt-4 bg-warning-subtle text-warning-emphasis fw-bold"> 
-                  If the facilities mentioned above are not enough,
-                  Fill the data below. We will send you the latest prices for your reservation. (via Email) 
-                  <br>
-                  ThereAfter you can make the payment for the reservation.
-                </div>
-                <div class="p-3 mt-2 bg-warning-subtle text-warning-emphasis fw-bold"> If you don't want extras, skip filling the data below. You can view the latest prices related to your reservation through this form. </div>
-                {{-- layout for user selection  --}}
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    {{-- user can select this things --}}
-                <h5 class="mt-4">Accommodation</h5>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="accommodation_type" id="flexRadioDefault1" value= "⭐"  >
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    ⭐
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="accommodation_type" id="flexRadioDefault2" value= "⭐⭐"  >
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    ⭐⭐
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="accommodation_type" id="flexRadioDefault2" value= "⭐⭐⭐"  >
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    ⭐⭐⭐
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="accommodation_type" id="flexRadioDefault2" value= "⭐⭐⭐⭐"  >
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    ⭐⭐⭐⭐
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="accommodation_type" id="flexRadioDefault2" value= "⭐⭐⭐⭐⭐" >
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    ⭐⭐⭐⭐⭐
-                  </label>
-                </div>
+                  <div class="col">
+                    {{--  massge --}}
+                    <label for="Additional_requests" class="fw-bold mt-3">Where do you meet to start the tour?</label>
+                    <div class="mt-2">
+                      <select id="inputState" class="form-select" name="pick_up_location">
+                        <option selected>From Hotel</option>
+                        <option>From Airport</option>
+                      </select>
+                    </div>
+
+                    <div class="form-floating mt-3">
+                      <textarea class="form-control" name="pick_up_location_details" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 120px;"></textarea>
+                      <label for="floatingTextarea2">Hotel or Airport Details.</label>
+                    </div>
+
+                    <div class="p-3 mt-2 bg-info-subtle text-info-emphasis fw-bold"> The booking can be paid after viewing the invoice. </div>
+                   
                   </div>
-                  <div class="col-md-6">
-                     {{-- transport method select --}}
-                {{-- user can select this things --}}
-                <h5 class="mt-4">Transport method</h5>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="transport_method" id="flexRadioTransport1" value= "🚗 Car" >
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    🚗 Car
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="transport_method" id="flexRadioTransport2" value= "🚐 Van" >
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    🚐 Van
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="transport_method" id="flexRadioTransport3" value= "🛺 Tuk Tuk" >
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    🛺 Tuk Tuk
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="transport_method" id="flexRadioTransport4" value= "🚌 Bus" >
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    🚌 Bus
-                  </label>
-                </div>
-                  </div>
-                </div>
-
-                <label for="Additional_requests" class="fw-bold mt-3">Mention Your Requirements</label>
-                <div class="form-floating ">
-                  <textarea class="form-control" name="aditional_requarement" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px;"></textarea>
-                  <label for="floatingTextarea2">Your Requirements</label>
-                </div>
-
-
 
               </div>
             </div>
-
-            
-
-             
 
             @auth()
             {{-- Book Now button --}}
@@ -371,9 +284,14 @@
             </div>
 
             @else
-              <p class="text-center fs-5 m-5 text-danger">Pleace Login into your account and book your travel package</p>
+              {{-- <p class="text-center fs-5 m-5 text-danger">Pleace Login into your account and book your travel package</p> --}}
+              <div class="d-grid gap-2 mt-3 bg-for-btn">
+                <a href="{{ route('login') }}" type="submit" class="btn btn-primary fw-bold fs-5">Login</a>
+              </div>
             @endauth
-            <p class="mt-4 text-center">Not sure? You can cancel this reservation up to 24 hours.</p>
+            <p class="mt-4 text-center">Not sure? You can cancel this reservation up to 24 hours | 
+              Paying back | Contact us.
+            </p>
           </div>
         </div>
 
@@ -387,13 +305,11 @@
          const startFee = {{ $travelPackage->price_start_from}};
          const perAdultFee = {{$travelPackage->per_adult_fee}};
          const perChildFee = {{$travelPackage->per_child_fee}};
-         const service_fee = {{ $travelPackage->service_fee}};
-         const booking_fee = {{ $travelPackage->booking_fee}};
 
         function updateTotalPrice() {
             const children = parseInt(document.getElementById('children').value) || 0;
             const adults = parseInt(document.getElementById('adults').value) || 0;
-            const totalPrice = startFee + service_fee + booking_fee + (children * perChildFee) + (adults * perAdultFee);
+            const totalPrice = startFee + (children * perChildFee) + (adults * perAdultFee);
             const formattedPrice = totalPrice.toFixed(2);
             document.getElementById('totalPrice').value = formattedPrice;
         }

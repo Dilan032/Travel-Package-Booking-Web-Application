@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\booking;
+use App\Models\ServiceForTravelPackage;
 use App\Models\travelPackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -36,18 +38,13 @@ class TravelPackageController extends Controller
             'image_2' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
             'image_3' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
             'duration' => 'required|string|max:255',
-            'duration_type' => 'required|in:Days,Weeks',
             'tour_type' => 'required|in:Adventure Tour,Beach Holiday Tour,Cultural Tour,Business Trip Tour, Wildlife Safaris',
-            'package_type' => 'required|in:Full package,Half package',
             'price_start_from' => 'required|numeric|min:0',
             'overview' => 'required|string',
             'included_things' => 'required|string',
-            'Excludes_things' => 'required|string',
             'tour_plane_description' => 'required|string',
             'per_adult_fee' => 'required|numeric|min:0',
             'per_child_fee' => 'required|numeric|min:0',
-            'service_fee' => 'required|numeric|min:0',
-            'booking_fee' => 'required|numeric|min:0',
         ];
 
         $validator = Validator::make($request->all(),  $rules);
@@ -63,50 +60,50 @@ class TravelPackageController extends Controller
         //set the attribute
         $travelPackage->package_name = $request->package_name;
         $travelPackage->duration = $request->duration;
-        $travelPackage->duration_type = $request->duration_type;
         $travelPackage->tour_type = $request->tour_type;
-        $travelPackage->package_type = $request->package_type;
         $travelPackage->price_start_from = $request->price_start_from;
         $travelPackage->overview = $request->overview;
         $travelPackage->included_things = $request->included_things;
-        $travelPackage->Excludes_things = $request->Excludes_things;
         $travelPackage->tour_plane_description = $request->tour_plane_description;
         $travelPackage->per_adult_fee = $request->per_adult_fee;
         $travelPackage->per_child_fee = $request->per_child_fee;
-        $travelPackage->service_fee = $request->service_fee;
-        $travelPackage->booking_fee = $request->booking_fee;
         $travelPackage->save();
 
         //set the attribute for images
         //for image 1
         if ($request->hasFile('image_1')) {
+
+                
             $image_1 = $request->file('image_1');
             $ext = $image_1->getClientOriginalExtension();
-            $imageName = time() . '.' . $ext;
+            $imageName = time() . uniqid('_img1_', true) . '.' . $ext;
             $image_1->move(public_path('image/uploads/travelPackage'), $imageName);
             $travelPackage->image_1 = $imageName;
             $travelPackage->save();
         }
+         //for image 2
+         if ($request->hasFile('image_2')) {
 
-
-        //for image 2
-        if ($request->hasFile('image_2')) {
+                
             $image_2 = $request->file('image_2');
             $ext = $image_2->getClientOriginalExtension();
-            $imageName = time() . '.' . $ext;
+            $imageName = time() . uniqid('_img2_', true) . '.' . $ext;
             $image_2->move(public_path('image/uploads/travelPackage'), $imageName);
             $travelPackage->image_2 = $imageName;
             $travelPackage->save();
         }
-        //for image 3
-        if ($request->hasFile('image_3')) {
+         //for image 3
+         if ($request->hasFile('image_3')) {
+
+                
             $image_3 = $request->file('image_3');
             $ext = $image_3->getClientOriginalExtension();
-            $imageName = time() . '.' . $ext;
+            $imageName = time() . uniqid('_img3_', true) . '.' . $ext;
             $image_3->move(public_path('image/uploads/travelPackage'), $imageName);
             $travelPackage->image_3 = $imageName;
             $travelPackage->save();
         }
+        
 
         // Process the validated data, such as saving it to the database
         return redirect()->route('admin.travelPackage.show')->with('success', 'Travel Package created successfully');
@@ -128,7 +125,7 @@ class TravelPackageController extends Controller
         return view('user.package', compact('travelPackage')); // Pass data to the view
     }
 
-    // for user showBlog page
+    // for user travel package page
     public function showTravelPackagePage($id){
         $travelPackage = travelPackage::findOrFail($id);
         return view('user.packagePage',[ 'travelPackage' => $travelPackage
@@ -161,18 +158,13 @@ class TravelPackageController extends Controller
             'image_2' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
             'image_3' => 'nullable|image|mimes:jpeg,svg,png,jpg,gif,webp|max:10240', // Ensure image file, max 10MB
             'duration' => 'required|string|max:255',
-            'duration_type' => 'required|in:Days,Weeks',
             'tour_type' => 'required|in:Adventure Tour,Beach Holiday Tour,Cultural Tour,Business Trip Tour, Wildlife Safaris',
-            'package_type' => 'required|in:Full package,Half package',
             'price_start_from' => 'required|numeric|min:0',
             'overview' => 'required|string',
             'included_things' => 'required|string',
-            'Excludes_things' => 'required|string',
             'tour_plane_description' => 'required|string',
             'per_adult_fee' => 'required|numeric|min:0',
             'per_child_fee' => 'required|numeric|min:0',
-            'service_fee' => 'required|numeric|min:0',
-            'booking_fee' => 'required|numeric|min:0',
         ];
 
         $validator = Validator::make($request->all(),  $rules);
@@ -186,18 +178,13 @@ class TravelPackageController extends Controller
         //set the attribute
         $travelPackage->package_name = $request->package_name;
         $travelPackage->duration = $request->duration;
-        $travelPackage->duration_type = $request->duration_type;
         $travelPackage->tour_type = $request->tour_type;
-        $travelPackage->package_type = $request->package_type;
         $travelPackage->price_start_from = $request->price_start_from;
         $travelPackage->overview = $request->overview;
         $travelPackage->included_things = $request->included_things;
-        $travelPackage->Excludes_things = $request->Excludes_things;
         $travelPackage->tour_plane_description = $request->tour_plane_description;
         $travelPackage->per_adult_fee = $request->per_adult_fee;
         $travelPackage->per_child_fee = $request->per_child_fee;
-        $travelPackage->service_fee = $request->service_fee;
-        $travelPackage->booking_fee = $request->booking_fee;
         $travelPackage->save();
 
 
@@ -267,6 +254,13 @@ class TravelPackageController extends Controller
      */
     public function destroy($id)
     {
+        //start booking delete ( delete relationShip)
+        $bookings = booking::where('package_id', $id)->get();
+        foreach ($bookings as $booking) {
+        $booking->delete();
+    }
+
+        //start travel package delete
         $travelPackage = travelPackage::findOrFail($id);
 
         //delete image 1

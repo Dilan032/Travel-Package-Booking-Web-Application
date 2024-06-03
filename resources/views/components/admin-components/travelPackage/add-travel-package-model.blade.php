@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="bg-for-list mt-4">
+            <div class="bg-for-price mt-4">
                 <div class="fw-bold ">
                     <label for="recipient-name" class="col-form-label fw-bold">Package Name</label>
                     <input type="text" name="package_name" value="{{old('package_name')}}" class="form-control" id="recipient-name">
@@ -56,44 +56,20 @@
       
                 <div class="row g-3 mt-3 fw-bold">
                     <div class="col">
-                        <div class="row ">
-                            <div class="col">
-                                <label for="inputState" class="form-label">Package Type</label>
-                                <select id="inputState" value="{{old('package_type')}}" name="package_type" class="form-select">
-                                    <option > - </option>
-                                    <option > Full package </option>
-                                    <option> Half package </option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <label for="inputState" class="form-label ">Tour Type</label>
-                                <select id="inputState" value="{{old('tour_type')}}" name="tour_type" class="form-select">
-                                    <option > - </option>
-                                    <option > Adventure Tour </option>
-                                    <option> Beach Holiday Tour </option>
-                                    <option > Cultural Tour </option>
-                                    <option> Business Trip Tour </option>
-                                    <option > Wildlife Safaris </option>
-                                </select>
-                            </div>
-                        </div>  
+                        <label for="inputState" class="form-label ">Tour Type</label>
+                        <select id="inputState" value="{{old('tour_type')}}" name="tour_type" class="form-select">
+                            <option > - </option>
+                            <option > Adventure Tour </option>
+                            <option> Beach Holiday Tour </option>
+                            <option > Cultural Tour </option>
+                            <option> Business Trip Tour </option>
+                            <option > Wildlife Safaris </option>
+                        </select>
                     </div>
-      
                     <div class="col">
-                        <div class="row ">
-                            <div class="col">
-                                <label for="inputCity" class="form-label">Duration</label>
-                                <input type="text"  value="{{old('duration')}}" name="duration" class="form-control" id="inputCity">
-                            </div>
-                            <div class="col">
-                                <label for="inputState" class="form-label">Duration Type</label>
-                                <select id="inputState" value="{{old('duration_type')}}" name="duration_type" class="form-select">
-                                    <option > Days </option>
-                                    <option> Weeks </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                        <label for="inputCity" class="form-label">Duration (Days)</label>
+                        <input type="text"  value="{{old('duration')}}" name="duration" class="form-control" placeholder="Days">
+                    </div>        
                 </div>
             </div>
 
@@ -115,17 +91,7 @@
                         <input type="text" name="per_child_fee" placeholder="$ 0.00" value="{{old('per_child_fee')}}" class="form-control" style="text-align: right;">
                     </div>
                 </div>
-            
-                <div class="row g-3 fw-bold">
-                    <div class="col">
-                        <label for="inputCity" class="form-label">Service Fee</label>
-                        <input type="text" name="service_fee" placeholder="$ 0.00" value="{{old('service_fee')}}" class="form-control" style="text-align: right;">
-                    </div>
-                    <div class="col">
-                        <label for="inputCity" class="form-label">Booking Fee</label>
-                        <input type="text" name="booking_fee" placeholder="$ 0.00" value="{{old('booking_fee')}}" class="form-control" style="text-align: right;">
-                    </div>
-                </div>
+                
             </div> 
             </div>
 
@@ -135,16 +101,10 @@
               <textarea name="overview" value="{{old('overview')}}"  class="form-control p-4" rows="5">  </textarea>
             </div>
 
-            <div class="row mt-4 bg-for-list" style="margin-left: 1px;">
-                <div class="col-md-6">  
+            <div class="row mt-4 bg-for-price" style="margin-left: 1px;"> 
                     <label for="message-text" class="col-form-label fw-bold">Include Things</label>
-                    <textarea name="included_things" value="{{old('included_things')}}" class="form-control" id="includeThings" rows="5"></textarea>
-                </div>
-                <div class="col-md-6">  
-                    <label for="message-text" class="col-form-label fw-bold">Excludes Things</label>
-                    <textarea name="Excludes_things" value="{{old('Excludes_things')}}" class="form-control" id="Excludes_things" rows="5"></textarea>
-                </div>
-              </div>
+                    <textarea name="included_things" value="{{old('included_things')}}" class="form-control" id="includeThings" rows="5"></textarea>        
+            </div>
               <p class="text-info">Enter <code> Windows + . </code> to add icons</p>
               
             <div class="mt-4 bg-for-list">

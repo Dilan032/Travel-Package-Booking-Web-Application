@@ -18,9 +18,7 @@ class travelPackage extends Model
             'image_2',
             'image_3',
             'duration',
-            'duration_type',
             'tour_type',
-            'package_type',
             'price_start_from',
             'overview',
             'included_things',
@@ -28,8 +26,6 @@ class travelPackage extends Model
             'tour_plane_description',
             'per_adult_fee', 
             'per_child_fee', 
-            'service_fee', 
-            'booking_fee',
     ];
 
       // Optionally, specify the attributes that should be cast to native types
@@ -37,13 +33,6 @@ class travelPackage extends Model
         'price_start_from' => 'decimal:2',
         'per_adult_fee' => 'decimal:2',
         'per_child_fee' => 'decimal:2',
-        'service_fee' => 'decimal:2',
-        'booking_fee' => 'decimal:2',
     ];
 
-     // Define the relationship with the Booking model
-    //  public function bookings()
-    //  {
-    //      return $this->hasMany(Booking::class, 'travel_packages_id');
-    //  }
 }

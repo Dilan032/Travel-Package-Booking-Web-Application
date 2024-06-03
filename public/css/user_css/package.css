@@ -28,7 +28,7 @@
 
 .bokking-form{
     width: 80%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(227, 227, 227);
     border-radius: 6px;
     border-color: black;
     border-width: 1px;
@@ -64,3 +64,12 @@
   }
 
   
+  .travelPackage-bg {
+    padding: 10px; 
+    margin-bottom: 15px; 
+    height: 450px; 
+    width: 270px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
+  }
