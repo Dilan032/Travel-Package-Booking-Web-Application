@@ -2,7 +2,7 @@
     <div class="row " >
       @if ( $travelPackage -> isNotEmpty())  
       @foreach ( $travelPackage as $package)  
-        <div class="col-md-4 p-4">
+        <div class="col-md-3 p-4">
           <a href="{{route('user.packagePage', $package->id)}}">  
 
             <div class="travelPackage-bg post-bg travelPackage-bg">    
@@ -34,7 +34,7 @@
           </a>
         </div>
         {{-- add new row --}}
-        @if ($loop->iteration % 3 === 0) 
+        @if ($loop->iteration % 4 === 0) 
     </div> 
     {{-- end first row --}}
 

@@ -227,7 +227,7 @@
                   <label for="adult" class="fw-bold">Adult</label>
                   <div class="form-floating mb-3">
                     <input type="number" id="adults" name="number_of_adult" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Adult" required>
-                    <label for="floatingInput">( Age 18+ ) ${{ $travelPackage->per_adult_fee}} per person</label>
+                    <label for="floatingInput">( Age 18+ ) <b>{{ $travelPackage->per_adult_fee}} $</b> per person</label>
                   </div>
               
 
@@ -235,7 +235,7 @@
                 <label for="Child" class="fw-bold">Child</label>
                 <div class="form-floating mb-3">
                   <input type="number" id="children" name="number_of_child" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Child" required>
-                  <label for="floatingInput">( Age 6 - 12 )  ${{ $travelPackage->per_child_fee}} per person</label>
+                  <label for="floatingInput">( Age 6 - 12 ) <b>{{ $travelPackage->per_child_fee}} $</b> per person</label>
                 </div>
 
                   

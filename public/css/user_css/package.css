@@ -2,12 +2,16 @@
     background-color: rgba(104, 137, 255, 0.121);
     border-radius: 6px;
     height: 500px;
+    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); */
+    border-style: groove;
+
 }
 
 .after-filter-bg{
     background-color: white;
     border-radius: 6px;
     padding-bottom: 10px;
+    padding: 6px;
     
     
 }
@@ -70,6 +74,6 @@
     height: 450px; 
     width: 270px;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     
   }

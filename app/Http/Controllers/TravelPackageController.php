@@ -27,6 +27,9 @@ class TravelPackageController extends Controller
         //
     }
 
+
+
+
     /**
      * Store a newly created resource in storage.
      */
