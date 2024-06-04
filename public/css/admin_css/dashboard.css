@@ -32,3 +32,24 @@
     padding: 5px;
 }
 
+/* dashbord content css start */
+.upcoming-events-bg{
+    height: 500px;
+    
+}
+.upcoming-events-details{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.user-bg{
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    height: 200px;
+    border-radius: 6px;
+}
+.resavation-bg{
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    height: 200px;
+    border-radius: 6px;
+}
