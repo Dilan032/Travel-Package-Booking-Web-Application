@@ -11,39 +11,33 @@
         <div class="row text-center fw-semibold">
             <div class="col">
                 <div class="Booking-detail-bg-first-3  bg-primary-subtle">
-                    <p class="fs-3"> 10 </p>
+                    <p class="fs-3"> {{ $allReservation }} </p>
                     All Resavations
                 </div>
             </div>
             <div class="col">
                 <div class="Booking-detail-bg-first-3 bg-primary-subtle">
-                    <p class="fs-3"> 10 </p>
+                    <p class="fs-3"> {{ $conformCountReservation }} </p>
                     Conformed Resavations
                 </div>
             </div>
             <div class="col">
                 <div class="Booking-detail-bg-first-3 bg-danger-subtle">
-                    <p class="fs-3"> 10 </p>
-                    Payment (pending)
-                </div>
-            </div>
-            <div class="col">
-                <div class="Booking-detail-bg-first-3 bg-danger-subtle">
-                    <p class="fs-3"> 10 </p>
+                    <p class="fs-3"> {{ $rejectedCountReservation }} </p>
                     Rejected resavations
                 </div>
             </div>
-        </div>
-
-
-        <div class="d-flex justify-content-start mt-4">
-            <div class="Booking-detail-bg-second-2 New-Resavations-position ">
-                <p class="fs-3"> 10 </p>
-                New Resavations To <br> Send Invoice
+            <div class="col">
+                <div class="Booking-detail-bg-first-3 bg-warning-subtle ">
+                    <p class="fs-3"> {{ $pendingCountPayment }}</p>
+                    User Payment (pending) 
+                </div>
             </div>
-            <div class="Booking-detail-bg-second-2 check-Resavations-position ms-5">
-                <p class="fs-3"> 5 </p>
-                 To Check Payment and <br> Conform Resavation
+            <div class="col">
+                <div class="Booking-detail-bg-first-3 bg-warning-subtle ">
+                    <p class="fs-3"> {{ $conformCountPayment }}</p>
+                    To Check Payment and <br> Conform Resavation
+                </div>
             </div>
         </div>
 
@@ -57,7 +51,6 @@
                 <th scope="col">Duration</th>
                 <th style="text-align: right;">Total</th>
                 <th scope="col">Reservation Status</th>
-                {{-- <th scope="col">Invoice</th> --}}
                 <th scope="col">Payment Status</th>
                 <th scope="col"> </th>
                 </tr>
@@ -76,30 +69,22 @@
                     <td align="right">{{ $booking->total_fee }} $</td>
                     <td style="text-align: center;">
                         @if ( $booking->reservation_status  == "pending")
-                            <span class="badge rounded-pill text-bg-info p-2 fs-6">{{ $booking->reservation_status }}</span>
+                            <span class="badge rounded-pill text-bg-info p-2 ">{{ $booking->reservation_status }}</span>
                         @elseif ( $booking->reservation_status  == "Conform")
-                            <span class="badge rounded-pill text-bg-success p-2 fs-6">{{ $booking->reservation_status }}</span>
+                            <span class="badge rounded-pill text-bg-success p-2 ">{{ $booking->reservation_status }}</span>
                         @elseif ( $booking->reservation_status  == "Reject")
-                            <span class="badge rounded-pill text-bg-danger p-2 fs-6">{{ $booking->reservation_status }}</span>
+                            <span class="badge rounded-pill text-bg-danger p-2 ">{{ $booking->reservation_status }}</span>
                         @endif
                         
                     </td>
-                    {{-- <td style="text-align: center;">
-                        @if ( $booking->invoice_status  == "pending")
-                            <span class="badge rounded-pill text-bg-info p-2 fs-6">{{ $booking->invoice_status }}</span>
-                        @elseif ( $booking->invoice_status  == "Conform")
-                            <span class="badge rounded-pill text-bg-success p-2 fs-6">{{ $booking->invoice_status }}</span>
-                        @elseif ( $booking->invoice_status  == "Reject")
-                            <span class="badge rounded-pill text-bg-danger p-2 fs-6">{{ $booking->invoice_status }}</span>
-                        @endif
-                    </td> --}}
+
                     <td style="text-align: center;">
                         @if ( $booking->payment_status  == "pending")
-                            <span class="badge rounded-pill text-bg-info p-2 fs-6">{{ $booking->payment_status }}</span>
+                            <span class="badge rounded-pill text-bg-info p-2 ">{{ $booking->payment_status }}</span>
                         @elseif ( $booking->payment_status  == "Success")
-                            <span class="badge rounded-pill text-bg-success p-2 fs-6">{{ $booking->payment_status }}</span>
+                            <span class="badge rounded-pill text-bg-success p-2 ">{{ $booking->payment_status }}</span>
                         @elseif ( $booking->payment_status  == "Reject")
-                            <span class="badge rounded-pill text-bg-danger p-2 fs-6">{{ $booking->payment_status }}</span>
+                            <span class="badge rounded-pill text-bg-danger p-2 ">{{ $booking->payment_status }}</span>
                         @endif
                     </td>
                     <td style="text-align: center; background-color:rgb(219, 219, 219);">

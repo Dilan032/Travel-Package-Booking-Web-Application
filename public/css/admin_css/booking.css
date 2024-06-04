@@ -1,6 +1,8 @@
 .Booking-detail-bg-first-3{
-    /* background-color: white; */
-    width: 250px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 210px;
+    height: 120px;
     padding: 10px;
     border-radius: 6px;
     box-shadow: 5px 5px 5px rgba(39, 32, 133, 0.2);

@@ -36,12 +36,28 @@ class BookingController extends Controller
     // this function show details for admin
     public function showAllBookingData()
     {  
+
+        // count number for Reservation
+        $pendingCountReservation = Booking::where('reservation_status', 'pending')->count();
+        $conformCountReservation = Booking::where('reservation_status', 'Conform')->count();
+        $rejectedCountReservation = Booking::where('reservation_status', 'Reject')->count();
+        $allReservation = Booking::whereIn('reservation_status', ['pending', 'Conform', 'Reject'])->count();
+
+        // count number for payment
+        $pendingCountPayment = Booking::where('payment_status', 'pending')->count();
+        $conformCountPayment = Booking::where('payment_status', 'Success')
+        ->where('reservation_status', 'pending')
+        ->count();
+        $rejectedCountPayment = Booking::where('payment_status', 'Reject')->count();
+
+
         $userId = Auth::id(); // Retrieve logged-in user ID
         $bookings = Booking::withUserAndPackage()
                 ->orderBy('created_at', 'DESC')
                 ->get();
     
-        return view('admin.bookingDetails', compact('bookings')); // Pass data to the view
+        return view('admin.bookingDetails', compact('bookings','pendingCountReservation', 'conformCountReservation', 'rejectedCountReservation',
+        'pendingCountPayment','conformCountPayment','rejectedCountPayment','allReservation')); // Pass data to the view
 
     }
 
@@ -199,10 +215,6 @@ class BookingController extends Controller
             return redirect()->route('admin.showOneUserBookingDataAll', ['id' => $id])->with('success', 'Booking Rejected');
             
         }
-
-        
-
-
 
     /**
      * Display the specified resource.

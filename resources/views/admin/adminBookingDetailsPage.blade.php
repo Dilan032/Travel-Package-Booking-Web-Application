@@ -222,13 +222,7 @@
                         <span class="fs-5 fw-semibold">Invoice </span>
                         <span>-> </span>
                         <span>
-                            {{-- @if ( $booking->invoice_status  == "pending")
-                                <span class="badge rounded-pill text-bg-info p-2">{{ $booking->invoice_status }}</span>
-                            @elseif ( $booking->invoice_status  == "conform") --}}
-                                <span class="badge rounded-pill text-bg-success p-2 fs-6">sent</span>
-                            {{-- @elseif ( $booking->invoice_status  == "reject")
-                                <span class="badge rounded-pill text-bg-danger p-2">{{ $booking->invoice_status }}</span>
-                            @endif --}}
+                            <span class="badge rounded-pill text-bg-success p-2 fs-6">sent</span>
                         </span>
                     </div>
         
@@ -237,11 +231,11 @@
                         <span>-> </span>
                         <span>
                             @if ( $booking->payment_status  == "pending")
-                                <span class="badge rounded-pill text-bg-info p-2">{{ $booking->payment_status }}</span>
+                                <span class="badge rounded-pill text-bg-info p-2 fs-6">{{ $booking->payment_status }}</span>
                             @elseif ( $booking->payment_status  == "Success")
-                                <span class="badge rounded-pill text-bg-success p-2 ">{{ $booking->payment_status }}</span>
+                                <span class="badge rounded-pill text-bg-success p-2 fs-6">{{ $booking->payment_status }}</span>
                             @elseif ( $booking->payment_status  == "Reject")
-                                <span class="badge rounded-pill text-bg-danger p-2 ">{{ $booking->payment_status }}</span>
+                                <span class="badge rounded-pill text-bg-danger p-2 fs-6">{{ $booking->payment_status }}</span>
                             @endif
                         </span>
                     </div>
@@ -252,11 +246,11 @@
                         <span>-> </span>
                         <span>
                             @if ( $booking->reservation_status  == "pending")
-                                <span class="badge rounded-pill text-bg-info p-2">{{ $booking->reservation_status }}</span>
+                                <span class="badge rounded-pill text-bg-info p-2 fs-6">{{ $booking->reservation_status }}</span>
                             @elseif ( $booking->reservation_status  == "Conform")
-                                <span class="badge rounded-pill text-bg-success p-2 ">{{ $booking->reservation_status }}</span>
+                                <span class="badge rounded-pill text-bg-success p-2 fs-6">{{ $booking->reservation_status }}</span>
                             @elseif ( $booking->reservation_status  == "Reject")
-                                <span class="badge rounded-pill text-bg-danger p-2 ">{{ $booking->reservation_status }}</span>
+                                <span class="badge rounded-pill text-bg-danger p-2 fs-6">{{ $booking->reservation_status }}</span>
                             @endif
                         </span>
                     </div>
