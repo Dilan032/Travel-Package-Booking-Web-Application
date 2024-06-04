@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\booking;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -30,5 +31,15 @@ class AdminController extends Controller
 
         return redirect()->route('admin.manageUsers')->with('success', 'User account deleted successfully');
     }
+
+ // admin page setting
+    public function indexAdminSetting()
+    {
+         // Retrieve the currently logged-in user
+         $user = Auth::user();
+         // Return a view with the user's details
+         return view('admin.setting', ['user' => $user]); 
+    }
+    
 
 }

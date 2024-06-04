@@ -8,22 +8,23 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\TravelPackageController;
 use App\Http\Controllers\UserMassageController;
 
+
 //for user navigationbar  
 Route::view('/', 'user/home')->name('home');
 Route::view('/aboutUs', 'user/aboutUs')->name('aboutUs');
 Route::view('/blogPage', 'user/blogPage')->name('blogPage');
 
+
 //login page
 Route::view('/login', 'auth.login')->name('loginPage');
 
+
 // for admin panel navigation
 Route::view('/admin/dashboard', 'admin.adminHome')->name('admin.home');
-Route::view('/admin/setting', 'admin.setting')->name('admin.setting');
-Route::view('/admin/manageUsers', 'admin.manageUsers')->name('admin.manageUsers');
-// Route::view('/admin/booking', 'admin.bookingDetails')->name('admin.booking'); 
 Route::view('/admin/massage', 'admin.masage')->name('admin.massage');
 Route::view('/admin/review', 'admin.review')->name('admin.review');
 Route::view('/admin/addBlog', 'admin.addBlog')->name('admin.addBlog');
+
 
 //admin user manage
 Route::get('/admin/manageUsers', [AdminController::class, 'index'])->name('admin.manageUsers');
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
+
 //payment Receipt Image Acccept
 Route::post('/profile/invoice/{id}', [BookingController::class, 'paymentReceiptImageAcccept'])->name('admin.payment.receipt.image.Acccept');
 //payment Receipt Image Reject
@@ -50,16 +52,13 @@ Route::post('/profile/invoice/a/{id}', [BookingController::class, 'paymentReceip
 Route::get('/login', [BookingController::class, 'showLoginView'])->name('loginPage');
 
 
-
 //for user booking
 Route::post('/package', [BookingController::class, 'store'])->name('user.booking.store');
-// Route::get('/blog', [BlogController::class, 'show'])->name('profile.Booking');
+
 
 //for admin booking details
 Route::get('/admin/Booking', [BookingController::class, 'showAllBookingData'])->name('admin.booking');
 Route::get('/admin/Booking/{id}', [BookingController::class, 'showOneUserBookingDataAll'])->name('admin.showOneUserBookingDataAll');
-
-
 
 
 // Route::get('/dashboard', function () {
@@ -71,10 +70,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/Edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/profile/Edit/password', [ProfileController::class, 'editPassword'])->name('profile.profileChangePassword');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
+
+
+// for admin
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/setting', [AdminController::class, 'indexAdminSetting'])->name('admin.setting');
+    // Route::get('/profile/Edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::get('/profile/Edit/password', [ProfileController::class, 'editPassword'])->name('profile.profileChangePassword');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+require __DIR__.'/auth.php';
+
 
 // for admin blog post (funtions start)
 Route::controller(BlogController::class)->group(function(){
@@ -96,13 +106,13 @@ Route::Get('admin/addPackage/page', [TravelPackageController::class, 'index'])->
 Route::post('admin/addPackage/page', [TravelPackageController::class, 'store'])->name('admin.addPackage.store');
 Route::get('/admin/showPackage', [TravelPackageController::class, 'showForAdmin'])->name('admin.travelPackage.show');
 
+
 // for user | show Travel Packages & Package page 
 Route::get('package', [TravelPackageController::class, 'showForUser'])->name('user.travelPackage.show');
 Route::get('/package/page{TravelPackage}', [TravelPackageController::class, 'showTravelPackagePage'])->name('user.packagePage');
 Route::get('/package/page{TravelPackage}/edit', [TravelPackageController::class, 'edit'])->name('admin.editTravelPackage');
 Route::put('/package/page{TravelPackage}', [TravelPackageController::class, 'update'])->name('admin.updateTravelPackage');
 Route::delete('/package/page{TravelPackage}', [TravelPackageController::class, 'destroy'])->name('admin.deleteTravelPackage');
-
 
 
 //for user massage
