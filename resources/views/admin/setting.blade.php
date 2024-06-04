@@ -7,7 +7,7 @@
     </div>
     <div class="container">
 
-        <div class="mt-5 p-5" style="background-color: rgba(212, 212, 212, 0.508); width: 1000px; border-radius:10px;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);margin-left:100px;">
+        <div class="mt-5 p-5" style="background-color: rgba(212, 212, 212, 0.268); width: 1000px; border-radius:5px; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);margin-left:100px;">
             <div class="d-flex justify-content-between">
                 <div>
                     <h4 style="margin-top: -10px">Update Admin Details</h4>
@@ -71,7 +71,7 @@
         </div>
 
         {{-- update password --}}
-        <div class="mt-5 p-5" style="background-color: rgba(212, 212, 212, 0.508); width: 1000px; border-radius:10px;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);margin-left:100px;">
+        <div class="mt-5 p-5" style="background-color: rgba(212, 212, 212, 0.268); width: 1000px; border-radius:5px; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);margin-left:100px;">
             <div class="d-flex justify-content-between">
                 <div>
                     <h4>Update Password</h4>
