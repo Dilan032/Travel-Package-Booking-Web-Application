@@ -3,13 +3,13 @@
 @section('admincontent')
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2 class="fw-light">Dashboard</h2>
+            <h2 class="fw-bold">Dashboard</h2>
         </div>
         <div class="container">
             <div class="row mt-5">
                 {{-- All Users summary --}}
                 <div class="col">
-                    <h4 class="mb-4 text-center">Users</h4>
+                    <h5 class="text-center bg-secondary text-white p-2">Users</h5>
                     <div class="user-bg p-4 mb-5">
                         <table class="table table-borderless">
                             <tr>
@@ -29,7 +29,7 @@
                 </div>
                 {{-- Resavation summary --}}
                 <div class="col">
-                    <h4 class="mb-4 text-center">Resavation</h4>
+                    <h5 class="text-center bg-secondary text-white p-2">Resavation</h5>
                     <div class="resavation-bg p-4">
                         <table class="table table-borderless">
                             <tr>
@@ -53,7 +53,7 @@
                 </div>
                 {{-- Blog Post summary --}}
                 <div class="col">
-                    <h4 class="mb-4 text-center">Blog Post</h4>
+                    <h5 class="text-center bg-secondary text-white p-2">Blog Post</h5>
                     <div class="user-bg p-4 mb-5">
                         <table class="table table-borderless">
                             <tr>
@@ -65,7 +65,7 @@
                 </div>
                 {{-- Travel Packages summary --}}
                 <div class="col">
-                    <h4 class="mb-4 text-center">Travel Packages</h4>
+                    <h5 class="text-center bg-secondary text-white p-2">Travel Packages</h5>
                     <div class="resavation-bg p-4">
                         <table class="table table-borderless">
                             <tr>
