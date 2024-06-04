@@ -1,0 +1,15 @@
+/* this is manage users css code [this code use only for manage users]*/
+.Booking-detail-bg-second-2{
+    background-color: white;
+    width: 320px;
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    
+}
+.Booking-detail-bg-second-2:hover{
+    font-weight: bold;
+}

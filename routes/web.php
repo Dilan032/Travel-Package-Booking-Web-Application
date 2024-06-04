@@ -25,6 +25,10 @@ Route::view('/admin/massage', 'admin.masage')->name('admin.massage');
 Route::view('/admin/review', 'admin.review')->name('admin.review');
 Route::view('/admin/addBlog', 'admin.addBlog')->name('admin.addBlog');
 
+//admin user manage
+Route::get('/admin/manageUsers', [AdminController::class, 'index'])->name('admin.manageUsers');
+Route::delete('/admin/manageUsers/{id}', [AdminController::class, 'destroy'])->name('admin.user.destroyBlog');
+
 
 // for user profile
 Route::middleware('auth')->group(function () {

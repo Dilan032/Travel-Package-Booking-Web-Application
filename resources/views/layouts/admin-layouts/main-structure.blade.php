@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_css/admin-package.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_css/admin-ckeditor.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_css/booking.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_css/manageUser.css') }}">
+
     <title>Admin Dashboard</title>
 </head>
 <body style="background-color: #f0f0f0;">

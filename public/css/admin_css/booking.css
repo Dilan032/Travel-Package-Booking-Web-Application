@@ -11,18 +11,7 @@
     font-weight: bold;
 }
 
-.Booking-detail-bg-second-2{
-    background-color: white;
-    width: 565px;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-radius: 6px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-    
-}
-.Booking-detail-bg-second-2:hover{
-    font-weight: bold;
-}
+
 
 .three-D-bg{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
