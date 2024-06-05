@@ -17,11 +17,11 @@
                                 <th><span class="badge rounded-pill text-bg-primary fs-6"> 3 </span></th>
                             </tr>
                             <tr>
-                                <th>Active Users</th>
+                                <td>Active Users</td>
                                 <th><span class="badge rounded-pill text-bg-success fs-6"> 3 </span></th>
                             </tr>
                             <tr>
-                                <th>Not active Users</th>
+                                <td>Not active Users</td>
                                 <th><span class="badge rounded-pill text-bg-warning fs-6"> 3 </span></th>
                             </tr>
                         </table>
@@ -34,19 +34,19 @@
                         <table class="table table-borderless">
                             <tr>
                                 <th>All Resavation</th>
-                                <th><span class="badge rounded-pill text-bg-primary fs-6"> 3 </span></th>
+                                <th><span class="badge rounded-pill text-bg-primary fs-6"> {{$allReservation}} </span></th>
                             </tr>
                             <tr>
-                                <th>Conform Resavation</th>
-                                <th><span class="badge rounded-pill text-bg-success fs-6"> 3 </span></th>
+                                <td>Conform Resavation</td>
+                                <th><span class="badge rounded-pill text-bg-success fs-6"> {{$conformCountReservation}} </span></th>
                             </tr>
                             <tr>
-                                <th>Reject Resavation</th>
-                                <th><span class="badge rounded-pill text-bg-danger fs-6"> 3 </span></th>
+                                <td>Reject Resavation</td>
+                                <th><span class="badge rounded-pill text-bg-danger fs-6"> {{ $rejectedCountReservation}} </span></th>
                             </tr>
                             <tr>
-                                <th>To Check Payment</th>
-                                <th><span class="badge rounded-pill text-bg-warning fs-6"> 3 </span></th>
+                                <td>To Check Payment</td>
+                                <th><span class="badge rounded-pill text-bg-warning fs-6"> {{ $conformCountPayment + $pendingCountPayment }} </span></th>
                             </tr>
                         </table>
                     </div>
@@ -58,7 +58,7 @@
                         <table class="table table-borderless">
                             <tr>
                                 <th>All Blog Post</th>
-                                <th><span class="badge rounded-pill text-bg-primary fs-6"> 3 </span></th>
+                                <th><span class="badge rounded-pill text-bg-primary fs-6"> {{$allBlogPost}} </span></th>
                             </tr>
                         </table>
                     </div>
@@ -69,20 +69,24 @@
                     <div class="resavation-bg p-4">
                         <table class="table table-borderless">
                             <tr>
-                                <th>Adventure Tour</th>
-                                <th><span class="badge rounded-pill text-bg-primary fs-6"> 3 </span></th>
+                                <th>All Travel Packges</th>
+                                <th><span class="badge rounded-pill text-bg-primary fs-6"> {{$allTravelPackage}} </span></th>
                             </tr>
                             <tr>
-                                <th>Beach Holiday Tour</th>
-                                <th><span class="badge rounded-pill text-bg-primary fs-6"> 3 </span></th>
+                                <td>Adventure Tour</td>
+                                <th><span class="badge rounded-pill text-bg-secondary fs-6"> {{$AdventureTour}} </span></th>
                             </tr>
                             <tr>
-                                <th>Cultural Tour</th>
-                                <th><span class="badge rounded-pill text-bg-primary fs-6"> 3 </span></th>
+                                <td>Beach Holiday Tour</td>
+                                <th><span class="badge rounded-pill text-bg-secondary fs-6"> {{$BeachHolidayTour}} </span></th>
                             </tr>
                             <tr>
-                                <th>Business Trip Tour</th>
-                                <th><span class="badge rounded-pill text-bg-primary fs-6"> 3 </span></th>
+                                <td>Cultural Tour</td>
+                                <th><span class="badge rounded-pill text-bg-secondary fs-6"> {{$CulturalTour}} </span></th>
+                            </tr>
+                            <tr>
+                                <td>Business Trip Tour</td>
+                                <th><span class="badge rounded-pill text-bg-secondary fs-6"> {{$BusinessTripTour}} </span></th>
                             </tr>
                         </table>
                     </div>
@@ -91,7 +95,7 @@
             </div>
 
 
-                <h3>Upcoming Events</h3>
+                {{-- <h3>Upcoming Events</h3>
                 <div class="upcoming-events-details p-3 mt-4 bg-black text-white d-flex justify-content-between"> 
                     <span>Resavation Id</span>
                     <span>Travel Name</span>
@@ -100,17 +104,24 @@
                     <span>Duration</span>
                     <span>Action</span>
                 </div>
+                @foreach ($bookings as $booking)
                 <div class="upcoming-events-bg mt-3">
-                    <div class="upcoming-events-details p-3 mb-3 bg-white text-dark d-flex justify-content-between rounded border border-primary">
-                        <span>Resavation Id</span>
-                        <span>Travel Name</span>
-                        <span>Travel Type</span>
-                        <span>Travel Date</span>
-                        <span>Duration</span>
-                        <button class="btn btn-primary"><b>View</b></button>
-                    </div>
+                  <div class="upcoming-events-details p-3 bg-white text-dark d-flex justify-content-between rounded border border-primary">
+                    <span>{{$booking->id}}</span>
+                    @if (isset($booking->travelPackage))
+                      <span>{{$booking->travelPackage->package_name}}</span>
+                      <span>{{$booking->travelPackage->tour_type}}</span>
+                    @else
+                      <span>Travel Package Not Found</span>
+                      <span>-</span>
+                    @endif
+                    <span>{{$booking->date}}</span>
+                    <span>{{$booking->travelPackage->duration ?? 'N/A'}} days</span>  <button class="btn btn-primary"><b>View</b></button>
+                  </div>
                 </div>
-            </div>
+              @endforeach
+              
+            </div> --}}
 
 
 

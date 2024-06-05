@@ -20,7 +20,7 @@ Route::view('/login', 'auth.login')->name('loginPage');
 
 
 // for admin panel navigation
-Route::view('/admin/dashboard', 'admin.adminHome')->name('admin.home');
+// Route::view('/admin/dashboard', 'admin.adminHome')->name('admin.home');
 Route::view('/admin/massage', 'admin.masage')->name('admin.massage');
 Route::view('/admin/review', 'admin.review')->name('admin.review');
 Route::view('/admin/addBlog', 'admin.addBlog')->name('admin.addBlog');
@@ -84,6 +84,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Route::view('/admin/dashboard', 'admin.adminHome')->name('admin.home');
+Route::get('/admin/dashboard', [AdminController::class, 'indexAdminDashboard'])->name('admin.home');
 
 
 // for admin blog post (funtions start)
