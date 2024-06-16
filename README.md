@@ -58,12 +58,17 @@ For PHP dependencies
 For Node.js dependencies
 `npm install`
 
+<br>
 
 ## Copy the .env.example File:
 Copy the .env.example file to create a new .env file.
 
+<br>
+
 ## Generate the Application Key:
 `php artisan key:generate`
+
+<br>
 
 ## Configure the Environment:
 Open the .env file and configure your database
@@ -76,10 +81,14 @@ Open the .env file and configure your database
 `DB_PASSWORD=` <br><br>
 `APP_NAME=SriLankaTours` <br>
 
+<br>
+
 ## Run Database Migrations:
 > [!WARNING]
 > Run Database Migrations is not recomandaed for this
 `php artisan migrate `
+
+<br>
 
 > [!NOTE]
 > Becouse if your are  Run Database Migrations website has not any data. > ( Blogs, Travel Packages) <br>
@@ -97,8 +106,12 @@ Open the .env file and configure your database
 ## Run the Vite Development Server:
 `npm run dev`
 
+<br>
+
 ## Start Laravel Development Server:
 `php artisan serve`
+
+<br>
 
 ## Access Your Application:
 Open your browser and navigate to http://127.0.0.1:8000 to verify that your application is working correctly.
