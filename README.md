@@ -3,13 +3,13 @@
 <h1 align="center"> With Laravel </h1>
 
 ## The user can  
-- View details about travel agency ,
- Blog Post ,
- Travel Packages ,
+- View details about ( travel agency )
+( Blog Post )
+( Travel Packages )
 - Book Travel package ( entering relavet Information ) <br>
 - View Current status about Booking
->  payment -> pending, Conform or Reject <br>
->  booking -> pending, Conform or Reject 
+>  payment -> ( pendin ) ( Conform ) ( Reject ) <br>
+>  booking -> ( pendin ) ( Conform ) ( Reject )
 <br>
 
 - View the invoice and pay for the relevant booking
@@ -19,13 +19,13 @@
 
 ## The Admin can
 - View all summary of the web application <br>
-   >  Users -> Active Users and Not active Users  <br>
-   >  Resavation -> All Resavation, Conform Resavation, Reject Resavation, To Check Payment  <br>
+   >  Users -> ( Active Users ) ( Not active Users ) <br>
+   >  Resavation -> ( All Resavation ) ( Conform Resavation ) ( Reject Resavation ) ( To Check Payment ) <br>
    >  Blog Post -> All Blog Post  <br>
-   >  Travel Packages -> All Travel Packges, Adventure Tour, Beach Holiday Tour, Cultural Tour, Business Trip Tour 
+   >  Travel Packages -> ( All Travel Packges) ( Adventure Tour ) ( Beach Holiday Tour ) ( Cultural Tour ) ( Business Trip Tour ) 
 
 - Manage Users <br>
-   >  See User Details -> No. Of Reservations, Date of Joining etc.  <br>
+   >  Show User Details -> ( Number Of Reservations ) ( Date of Joining ) etc.  <br>
    >  Contact or Remove User Account 
     
 - User's Massages <br>
@@ -106,6 +106,10 @@ Open your browser and navigate to http://127.0.0.1:8000 to verify that your appl
 <br><br>
 
 <h1 align="center"> For Login </h1>
+
+> [!NOTE]
+> If You are use `Database SQL`  folder's database file (sql), Then you can use this login details.<br>
+> Or register as a new user. <br>
     
 ## Admin
 - Email Address: dilankanishka032@gmail.com <br>
