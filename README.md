@@ -40,7 +40,7 @@
   > ( View )
   > ( Update )
 
-  - Blog Post For CRUD Operations
+- Blog Post For CRUD Operations
     > ( create )
     > ( Delete )
     > ( View )
