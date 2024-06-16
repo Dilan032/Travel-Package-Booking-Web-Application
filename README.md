@@ -1,6 +1,6 @@
-<h1 align="center">Travel Package Booking Web Application With Laravel</h1>
+<h1 align="center">Travel Package Booking Web Application</h1>
 
-# Introduction
+<h1 align="center"> With Laravel </h1>
 
 ## The user can  
 - View details about travel agency ,
@@ -48,7 +48,7 @@
 
 <br><br>
 
-<h1>How Use This Web Application In Another Computer</h1>
+<h1 align="center">How Use This Web Application In Another Computer</h1>
 
 ## Install Dependencies:
 
@@ -91,8 +91,8 @@ Open the .env file and configure your database
 
 <br><br>
 
-# Deploy Web Application
-
+<h1 align="center"> Deploy Web Application </h1>
+    
 ## Run the Vite Development Server:
 `npm run dev`
 
@@ -102,7 +102,10 @@ Open the .env file and configure your database
 ## Access Your Application:
 Open your browser and navigate to http://127.0.0.1:8000 to verify that your application is working correctly.
 
-# For Login
+<br><br>
+
+<h1 align="center"> For Login </h1>
+    
 ## Admin
 - Email Address: dilankanishka032@gmail.com <br>
 - Password: 032
@@ -110,5 +113,6 @@ Open your browser and navigate to http://127.0.0.1:8000 to verify that your appl
 ## User
 - Email Address: kanishka@gmail.com <br>
 - Password: 12345678
+
 
 
