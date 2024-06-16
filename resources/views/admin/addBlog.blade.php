@@ -30,16 +30,13 @@
           </div>
       @endif
 
-        
-        
-
           {{-- All blog post --}}
           @include('components/admin-components/home-blog')
 
     </div>
 </main>
 
-{{-- model for add blog post --}}
-@include('components/admin-components/add-blog-post-model')
+        {{-- model for add blog post --}}
+        @include('components/admin-components/add-blog-post-model')
 
 @endsection

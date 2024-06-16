@@ -31,7 +31,7 @@
         @endif
 
             {{-- All travel package --}}
-        @include('components/admin-components/travelPackage/home-tarvelPackage')
+            @include('components/admin-components/travelPackage/home-tarvelPackage')
         
     </div>
 </main>

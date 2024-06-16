@@ -14,23 +14,23 @@
             <b>{{ $booking->user->name }}</b>'s Booking Details</h2>
         @endforeach
     
-     {{-- To display validation errors or success messages --}}
-     @if ($errors->any())
-     <div class="alert alert-danger">
-         <ul class="fw-medium">
-             @foreach ($errors->all() as $error)
-                 <li>{{ $error }}</li>
-             @endforeach
-             <li class="fw-light">try again</li>
-         </ul>
-     </div>
-    @endif
-
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
+        {{-- To display validation errors or success messages --}}
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="fw-medium">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                <li class="fw-light">try again</li>
+            </ul>
         </div>
-    @endif
+        @endif
+
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
     <div class="container">
     <div class="row">
@@ -44,11 +44,12 @@
                 </button>
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#ContacInformation" aria-expanded="false" aria-controls="collapseExample">
                     Contact Information
-                  </button>
-              </p>
+                </button>
+            </p>
 
 
-              <section>
+            {{-- All Bokking Data Like summery--}}
+            <section>
                 <div class="collapse" id="ContacInformation">
                     <div class="card card-body">
                         <h4 class="mb-5">Contac Information</h4>
@@ -70,9 +71,6 @@
                                 <td style="text-align: left;">{{ $booking->user->phone_number }}</td>
                             </tr>
                         </table>
-                
-       
-      
                         <br><br><br><br>
                     </div>
                 </div>
@@ -212,9 +210,9 @@
                         </div>
                     </div>
                 </div> 
-              </section>
+            </section>
 
-              {{-- summery about booking --}}
+            {{-- summery about booking --}}
             <section class="position-relative">
                 {{-- All summery Details about Booking --}}
                 <div class="all-summery-section-bg  ">
@@ -254,7 +252,6 @@
                             @endif
                         </span>
                     </div>
-        
         
                 </div>
         
@@ -345,30 +342,17 @@
                         <div><h6 class="ps-3">Total Fee</h6></div>
                         <div>{{ $booking->total_fee }} $</div>
                     </div>
-                    
-                    <hr>
-                    
+        
+                    <hr>        
                 </div>
-                {{-- <div class="d-grid gap-2 mb-5">
-                    <a href="" type="submit" class="btn btn-success btn-lg">Send Invoice</a>
-                    <a href="" type="submit" class="btn btn-danger btn-lg">Reject Booking</a>
-                </div> --}}
             </form>
         </div>
     </div>
-
-
-
-
-
-
-
-
     </div>
 </main>
 
 
-  <!-- Modal -->
+  <!-- Modal for check payment recipt-->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

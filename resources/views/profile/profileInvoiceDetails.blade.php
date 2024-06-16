@@ -5,7 +5,6 @@
     <div class="col-2">
         @include('profile.partials.sideMenu')
     </div>
-
     <div class="col-10 mx-auto p-4 dashbord-bg">
          {{-- To display validation errors or success messages --}}
         <div class="position-absolute w-50" style="margin-left: 310px; margin-top: -20px;">
@@ -26,8 +25,6 @@
                 </div>
             @endif
         </div>
-
-
 
         <div class="row">
             <div class="col-8">
@@ -145,12 +142,8 @@
                         @else
                             <div> </div>
                         @endif
-                        
-
                     </div>
 
-                    
-            
                     {{-- payment section --}}
                     <div class=" payment-bg">
                         <form action="{{route('user.payment.receipt.image', $booking->id )}}" method="post" enctype="multipart/form-data">
@@ -163,16 +156,14 @@
                     </div>
 
                     @if ($booking->payment_status  == "Reject")
-                            <div> </div>
-                        @else
-                            <p class="font-monospace mt-4 text-primary">
-                                Payment can be made in any way. Upload the receipt. We will check it and inform you about your reservation.
-                            </p>
-                        @endif
-                    
-
-                </section>
-                
+                    <div> </div>
+                    @else
+                        <p class="font-monospace mt-4 text-primary">
+                            Payment can be made in any way. Upload the receipt. We will check it and inform you about your reservation.
+                        </p>
+                    @endif
+    
+                </section>            
             </div>
         </div>
     </div>

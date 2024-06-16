@@ -6,24 +6,24 @@
         <h2 class="fw-light">Messages</h2>
     </div>
     <div class="container">
-
-                  {{-- To display validation errors or success messages --}}
-                  @if ($errors->any())
-                  <div class="alert alert-danger">
-                      <ul class="fw-medium">
-                          @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                          <li class="fw-light">try again</li>
-                      </ul>
-                  </div>
-                @endif
-        
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+        {{-- To display validation errors or success messages --}}
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="fw-medium">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                <li class="fw-light">try again</li>
+            </ul>
+        </div>
+        @endif
+  
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif     
+                  
 
         <table class="table">
             <thead>
@@ -80,13 +80,13 @@
     </div>
 
     {{-- script for delete blog post cofomation alert --}}
-  <script>
-    function deleteUserMassage(id){
-      if(confirm("Do you want to this massage ?")){
-        document.getElementById('massage-id-' + id).submit();
-      }
-    }
-  </script>
+    <script>
+        function deleteUserMassage(id){
+        if(confirm("Do you want to this massage ?")){
+            document.getElementById('massage-id-' + id).submit();
+        }
+        }
+    </script>
 
 </main>
 @endsection

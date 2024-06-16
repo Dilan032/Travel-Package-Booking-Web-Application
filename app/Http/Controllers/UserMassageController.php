@@ -16,20 +16,6 @@ class UserMassageController extends Controller
         return view('user.contactUs');
     }
 
-    //for user page contacUs
-    public function contactUsShow(){
-        // return view('user.contactUs');
-        
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -73,22 +59,6 @@ class UserMassageController extends Controller
     {
         $user_massages = userMassage::orderBy('created_at','DESC')->get();
         return view('admin.masage', compact('user_massages')); // Pass data to the view
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(userMassage $userMassage)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, userMassage $userMassage)
-    {
-        //
     }
 
     /**

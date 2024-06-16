@@ -24,14 +24,11 @@
     <title>Admin Dashboard</title>
 </head>
 <body style="background-color: #f0f0f0;">
+
     @include('layouts.admin-layouts.navigationbar')
 
     @yield('admincontent')
     
-
-
-
-
 
     {{-- for bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -16,6 +16,7 @@
               </div> 
 
               <hr>
+              
               <h5> {{ $blogPost->title}} </h5>
               <p>  {{ \carbon\carbon::parse($blogPost->created_at)->format('d M, Y') }} </p>
             </div>

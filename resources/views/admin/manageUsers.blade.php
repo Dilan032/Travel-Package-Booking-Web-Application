@@ -6,7 +6,6 @@
         <h2 class="fw-light">Manage Users</h2>
     </div>
     <div class="container">
-    
          {{-- To display validation errors or success messages --}}
          @if ($errors->any())
          <div class="alert alert-danger">

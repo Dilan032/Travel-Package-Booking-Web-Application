@@ -49,7 +49,7 @@
             </td>
             <td style="text-align: center;">
               @if ( $booking->payment_status  == "pending")
-                      <span class="badge rounded-pill text-bg-info p-2 ">Not Allow Yet</span>
+                      <span class="badge rounded-pill text-bg-info p-2 ">Pay Now</span>
               @elseif ( $booking->payment_status  == "Success")
                       <span class="badge rounded-pill text-bg-success p-2 ">{{ $booking->payment_status }}</span>
               @elseif ( $booking->payment_status  == "Reject")

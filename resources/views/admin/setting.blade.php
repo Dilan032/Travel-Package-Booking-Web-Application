@@ -6,7 +6,6 @@
         <h2 class="fw-light">Settings</h2>
     </div>
     <div class="container">
-
         <div class="mt-5 p-5" style="background-color: rgba(212, 212, 212, 0.268); width: 1000px; border-radius:5px; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);margin-left:100px;">
             <div class="d-flex justify-content-between">
                 <div>
@@ -38,7 +37,6 @@
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label fw-semibold">Name</label>
                     <input name="name" type="text" value="{{ old('name', $user->name) }}" class="form-control" id="exampleFormControlInput1" required>
-                    {{-- <x-input-error class="mt-2" :messages="$errors->get('name')" /> --}}
                 </div>
                 
                 {{-- user email --}}

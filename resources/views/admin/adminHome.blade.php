@@ -27,6 +27,7 @@
                         </table>
                     </div>
                 </div>
+
                 {{-- Resavation summary --}}
                 <div class="col">
                     <h5 class="text-center bg-secondary text-white p-2">Resavation</h5>
@@ -51,6 +52,7 @@
                         </table>
                     </div>
                 </div>
+
                 {{-- Blog Post summary --}}
                 <div class="col">
                     <h5 class="text-center bg-secondary text-white p-2">Blog Post</h5>
@@ -63,6 +65,7 @@
                         </table>
                     </div>
                 </div>
+
                 {{-- Travel Packages summary --}}
                 <div class="col">
                     <h5 class="text-center bg-secondary text-white p-2">Travel Packages</h5>
@@ -94,9 +97,9 @@
 
             </div>
 
-
-                {{-- <h3>Upcoming Events</h3>
-                <div class="upcoming-events-details p-3 mt-4 bg-black text-white d-flex justify-content-between"> 
+            {{-- Show upcomming Bookings --}}
+            {{-- <h3>Upcoming Events</h3>
+            <div class="upcoming-events-details p-3 mt-4 bg-black text-white d-flex justify-content-between"> 
                     <span>Resavation Id</span>
                     <span>Travel Name</span>
                     <span>Travel Type</span>
@@ -119,11 +122,8 @@
                     <span>{{$booking->travelPackage->duration ?? 'N/A'}} days</span>  <button class="btn btn-primary"><b>View</b></button>
                   </div>
                 </div>
-              @endforeach
-              
+              @endforeach                  
             </div> --}}
-
-
 
         </div>
 </main>

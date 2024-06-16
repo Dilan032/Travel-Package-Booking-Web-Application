@@ -34,10 +34,6 @@ class BlogController extends Controller
         }
 
 
-    public function create(){
-
-    }
-
     public function store(Request $request){
         $rules =[
             'blogTitle' => 'required|string|max:255',

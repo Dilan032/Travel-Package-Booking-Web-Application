@@ -6,7 +6,6 @@
         <h2 class="fw-light">Booking Details</h2>
     </div>
     <div class="container">
-    
         {{-- main three content --}}
         <div class="row text-center fw-semibold">
             <div class="col">

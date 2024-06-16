@@ -15,9 +15,9 @@
         <pre class="text-center fs-3 mt-3">Wellcome To Sri Lanka🙏</pre>
 
 
-        {{-- Packages --}}
+        {{-- 4 Packages for home page --}}
         <div class="container mt-5">
-            <div class="d-flex justify-content-between">
+            {{-- <div class="d-flex justify-content-between">
                 <div>
                     <h3>Featured Day and Round Tours</h3>
                     <pre>Explore Sri Lanka's Gems in a Day</pre>
@@ -26,15 +26,15 @@
                     <button type="button" class="btn btn-primary">See All Tour Packages</button>
                 </div>
             </div> 
-        </div>
+        </div> --}}
             {{-- close container --}}
 
             
         {{-- Packages cart start --}}
-        <div class="container mt-3">
+        {{-- <div class="container mt-3">
             <table class="table table-borderless ">
                 <tr>
-                    <td> {{-- Packages cart 1 --}}
+                    <td> 
                         <a href="your_destination_page_url" class="no-decoration">
                             <div class="card d-inline-flex p-1" style="width: 18rem;">
                                 <img src="{{ asset('image/cart_image1.png') }}" class="card-img-top object-fit-fill" alt="...">
@@ -48,7 +48,7 @@
                         </a>
                     </td>
 
-                    <td>  {{-- Packages cart 2 --}}           
+                    <td>            
                         <a href="your_destination_page_url" class="no-decoration">
                             <div class="card d-inline-flex p-1" style="width: 18rem;">
                                 <img src="{{ asset('image/cart_image1.png') }}" class="card-img-top object-fit-fill" alt="...">
@@ -62,7 +62,7 @@
                         </a>
                     </td>
 
-                    <td> {{-- Packages cart 3 --}}
+                    <td> 
                         <a href="your_destination_page_url" class="no-decoration">
                             <div class="card d-inline-flex p-1" style="width: 18rem;">
                                 <img src="{{ asset('image/cart_image1.png') }}" class="card-img-top object-fit-fill" alt="...">
@@ -76,7 +76,7 @@
                         </a>
                     </td>
 
-                    <td> {{-- Packages cart 4 --}}
+                    <td> 
                         <a href="your_destination_page_url" class="no-decoration">
                             <div class="card d-inline-flex p-1" style="width: 18rem;">
                                 <img src="{{ asset('image/cart_image1.png') }}" class="card-img-top object-fit-fill" alt="...">
@@ -91,9 +91,9 @@
                     </td>
                 </tr>
               </table>
-        </div> 
+        </div>  --}}
         {{-- close container --}}
-
+    </div>
 
         <div class="container-fluid mt-5 section-bg-color-home">
             <div class="row ">
@@ -181,7 +181,7 @@
                                 From the ancient wonders to the scenic train rides, every day was a new discovery.
                             </q>
                             <hr/>
-                            <p class="font-monospace">name <br/> country</p>
+                            <p class="font-monospace">Joshap <br/> US</p>
                         </div>
                       </div>
                       <div class="carousel-item">
@@ -192,7 +192,7 @@
                                 From the ancient wonders to the scenic train rides, every day was a new discovery.
                             </q>
                             <hr/>
-                            <p class="font-monospace">name <br/> country</p>
+                            <p class="font-monospace">Amal <br/> Sri lanka</p>
                         </div>
                       </div>
                     </div>

@@ -6,7 +6,8 @@
         <h2 class="fw-light">Reviews</h2>
     </div>
     <div class="container">
-    <!-- Your dashboard content goes here -->
+    <!-- Review Section Code -->
+    {{-- not compleate this function --}}
     </div>
 </main>
 

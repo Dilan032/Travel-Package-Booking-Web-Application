@@ -98,13 +98,6 @@ class BookingController extends Controller
         return view('profile.profileInvoiceDetails', compact('booking')); // Pass data to the view    
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -216,35 +209,4 @@ class BookingController extends Controller
             
         }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(booking $booking)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(booking $booking)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, booking $booking)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(booking $booking)
-    {
-        //
-    }
 }

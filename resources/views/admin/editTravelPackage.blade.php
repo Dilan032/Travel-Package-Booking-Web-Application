@@ -9,7 +9,7 @@
             Back
         </a>
     </div>
-          {{-- To display validation errors or success messages --}}
+        {{-- To display validation errors or success messages --}}
         @if ($errors->any())
           <div class="alert alert-danger">
               <ul class="fw-medium">
@@ -29,14 +29,10 @@
 
 
     <h2 class="fw-light mt-2">Edit Travel Package</h2>
-
     <div class="container mt-4">
-
           <form action="{{route('admin.updateTravelPackage',$travelPackage->id)}}" method="post" enctype="multipart/form-data">
             @method('put')  
             @csrf
-            
-
             {{-- current image show --}}
             <div class="row mt-4">
                 <div class="col">                  
@@ -146,9 +142,7 @@
               <a href="{{route('admin.travelPackage.show')}}" type="button" class="btn btn-secondary">Cancel</a>
               <button type="submit" class="btn btn-primary">Update Package</button>
             </div>
-
             <br><br>
-
           </form>
 
     </div>

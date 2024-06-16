@@ -14,6 +14,7 @@
                   <img src="{{ asset('image/uploads/travelPackage/empty-image.png') }}" alt="package Image" class="object-fit-contain img-fluid" width="150px">
                   @endif
               </div>
+              
               <hr> 
               
                 <div class="text-black bg-white p-2" style="height: 210px; border-radius: 10px;">

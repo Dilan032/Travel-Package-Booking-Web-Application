@@ -123,10 +123,6 @@
             <h3 class="mb-4 fw-bold bg-for-user-list">Price Includes</h3>
               {!! $travelPackage->included_things !!}
           </div>
-          {{-- <div class="col-md-4 text-start"> 
-            <h3 class="mb-4 fw-bold bg-for-user-list">Price Excludes</h3>
-            {!! $travelPackage->Excludes_things !!}
-          </div> --}}
         </div>
 
         {{-- show important massage --}}
@@ -217,43 +213,41 @@
               <div class="col-6 ">
                 <div class="bg-for-user-list">
                      {{-- select date --}}
-                <label for="Arrival_Date" class="fw-bold">Arrival Date</label>
-                <div class="form-floating mb-3 ">
-                  <input type="date" class="form-control" name="date" id="floatingInput" placeholder="Select Date" required>
-                  <label for="floatingInput">(required)</label>
-                </div>
+                    <label for="Arrival_Date" class="fw-bold">Arrival Date</label>
+                    <div class="form-floating mb-3 ">
+                      <input type="date" class="form-control" name="date" id="floatingInput" placeholder="Select Date" required>
+                      <label for="floatingInput">(required)</label>
+                    </div>
 
-                  {{-- select number of adults --}}
-                  <label for="adult" class="fw-bold">Adult</label>
-                  <div class="form-floating mb-3">
-                    <input type="number" id="adults" name="number_of_adult" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Adult" required>
-                    <label for="floatingInput">( Age 18+ ) <b>{{ $travelPackage->per_adult_fee}} $</b> per person</label>
-                  </div>
+                    {{-- select number of adults --}}
+                    <label for="adult" class="fw-bold">Adult</label>
+                    <div class="form-floating mb-3">
+                      <input type="number" id="adults" name="number_of_adult" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Adult" required>
+                      <label for="floatingInput">( Age 18+ ) <b>{{ $travelPackage->per_adult_fee}} $</b> per person</label>
+                    </div>
               
 
-                {{-- select number of Child --}}
-                <label for="Child" class="fw-bold">Child</label>
-                <div class="form-floating mb-3">
-                  <input type="number" id="children" name="number_of_child" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Child" required>
-                  <label for="floatingInput">( Age 6 - 12 ) <b>{{ $travelPackage->per_child_fee}} $</b> per person</label>
+                    {{-- select number of Child --}}
+                    <label for="Child" class="fw-bold">Child</label>
+                    <div class="form-floating mb-3">
+                      <input type="number" id="children" name="number_of_child" value="" min="0" oninput="updateTotalPrice()" class="form-control" id="floatingInput" placeholder="Child" required>
+                      <label for="floatingInput">( Age 6 - 12 ) <b>{{ $travelPackage->per_child_fee}} $</b> per person</label>
+                    </div>
+
+
+                    {{-- price --}}
+                    <div class="d-flex fw-bold fs-5 mb-2">
+                      <label for="Booking_fee" class="flex-grow-1 ms-2">Price Start From: ($) </label>
+                      <label for="fee" class="me-3"> {{ $travelPackage->price_start_from}}</label>
+                    </div>
+
+                    <div class="d-flex fw-bold text-white bg-dark fs-5">
+                      <label for="Total_fee" class="flex-grow-1 ms-2">Total fee: ($)</label>
+                      <input type="number" id="totalPrice" name="total_fee" value="0.00" readonly style="text-align: right; height:50px;">
+                    </div> 
                 </div>
-
-                  
-
-                  {{-- price --}}
-                  <div class="d-flex fw-bold fs-5 mb-2">
-                    <label for="Booking_fee" class="flex-grow-1 ms-2">Price Start From: ($) </label>
-                    <label for="fee" class="me-3"> {{ $travelPackage->price_start_from}}</label>
-                  </div>
-
-                  <div class="d-flex fw-bold text-white bg-dark fs-5">
-                    <label for="Total_fee" class="flex-grow-1 ms-2">Total fee: ($)</label>
-                    <input type="number" id="totalPrice" name="total_fee" value="0.00" readonly style="text-align: right; height:50px;">
-                  </div> 
-
-                </div>
-              
             </div>
+
             <div class="col-6">
                   <div class="col">
                     {{--  massge --}}
@@ -269,11 +263,8 @@
                       <textarea class="form-control" name="pick_up_location_details" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 120px;"></textarea>
                       <label for="floatingTextarea2">Hotel or Airport Details.</label>
                     </div>
-
                     <div class="p-3 mt-2 bg-info-subtle text-info-emphasis fw-bold"> The booking can be paid after viewing the invoice. </div>
-                   
                   </div>
-
               </div>
             </div>
 
@@ -297,7 +288,7 @@
 
         <hr class="mb-5">
 
-        {{-- close container --}}
+      {{-- close container --}}
       </div>
 
       {{-- for calculate booking total fee --}}
