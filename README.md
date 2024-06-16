@@ -73,7 +73,8 @@ Open the .env file and configure your database
 `DB_PORT=3306` <br>
 `DB_DATABASE=travel_agency_db` <br>
 `DB_USERNAME=root` <br>
-`DB_PASSWORD=` <br>
+`DB_PASSWORD=` <br><br>
+`APP_NAME=SriLankaTours` <br>
 
 ## Run Database Migrations:
 > [!WARNING]
