@@ -34,13 +34,13 @@
   >  ( Show Massage Send Date and Time ) 
   >  ( Send Email To User )
 
-- Trvel Package For CRUD Operations
+- CRUD Operations For Trvel Package 
   > ( create )
   > ( Delete )
   > ( View )
   > ( Update )
 
-- Blog Post For CRUD Operations
+- CRUD Operations For  Blog Post 
     > ( create )
     > ( Delete )
     > ( View )
