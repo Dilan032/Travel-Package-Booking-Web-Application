@@ -2,7 +2,15 @@
 
 <h1 align="center"> With Laravel </h1>
 
-## The user can  
+> [!IMPORTANT]
+> **[View WebApplication UI/UX Design (Figma)](https://www.figma.com/design/E5aFcTBk4oNJvYFS6FPTE7/Travel-Package-Web-App-%22-Sinha-Tour-%22?node-id=0-1&t=4jlFsHrvz8b5hmJM-0)**
+> <br> <br>
+> **[View WebApplication Screenshots](https://dilan032.github.io/Portfolio/projects/TavelPackageBookingWebApplication/TavelPackageBookingWeb.html)**
+
+
+
+
+## The user features  
 - View details about ( travel agency )
 ( Blog Post )
 ( Travel Packages )
@@ -17,7 +25,7 @@
   
 <br><br>
 
-## The Admin can
+## The Admin features
 - View all summary of the web application <br>
    >  Users -> ( Active Users ) ( Not active Users ) <br>
    >  Resavation -> ( All Resavation ) ( Conform Resavation ) ( Reject Resavation ) ( To Check Payment ) <br>
